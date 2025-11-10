@@ -6,7 +6,7 @@ import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
 import java.util.List;
-// import java.util.Optional; // Removido
+
 
 public class CadastroUsuario {
 
@@ -17,7 +17,7 @@ public class CadastroUsuario {
     }
 
     public void cadastrar(Usuario usuario) throws EntidadeJaExistenteExcecao {
-        // Verificação alterada de .isPresent() para != null
+        
         if (repositorio.buscarPorId(usuario.getId()) != null) {
             throw new EntidadeJaExistenteExcecao(usuario.getId(), "Já existe um usuário com o ID " + usuario.getId());
         }
@@ -25,7 +25,7 @@ public class CadastroUsuario {
     }
 
     public void atualizar(Usuario usuario) throws EntidadeNaoEncontradaExcecao {
-        // Verificação alterada de .isEmpty() para == null
+      
         if (repositorio.buscarPorId(usuario.getId()) == null) {
             throw new EntidadeNaoEncontradaExcecao(usuario.getId(), "Usuário não encontrado para atualização.");
         }
@@ -33,14 +33,13 @@ public class CadastroUsuario {
     }
 
     public void remover(String id) throws EntidadeNaoEncontradaExcecao {
-        // Verificação alterada de .isEmpty() para == null
+        
         if (repositorio.buscarPorId(id) == null) {
             throw new EntidadeNaoEncontradaExcecao(id, "Usuário não encontrado para remoção.");
         }
         repositorio.deletarPorId(id);
     }
-
-    // Retorno alterado de Optional<Usuario> para Usuario
+    
     public Usuario buscarPorId(String id) {
         return repositorio.buscarPorId(id);
     }
@@ -48,8 +47,7 @@ public class CadastroUsuario {
     public List<Usuario> buscarTodos() {
         return repositorio.buscarTodos();
     }
-
-    // Retorno alterado de Optional<Usuario> para Usuario
+    
     public Usuario buscarPorLogin(String login) {
         return repositorio.buscarPorLogin(login);
     }
