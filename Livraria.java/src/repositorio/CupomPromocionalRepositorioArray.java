@@ -5,7 +5,6 @@ import model.CupomPromocional;
 
 import java.util.ArrayList;
 import java.util.List;
-// import java.util.Optional; // Removido
 
 public class CupomPromocionalRepositorioArray {
 
@@ -37,14 +36,14 @@ public class CupomPromocionalRepositorioArray {
         throw new EntidadeNaoEncontradaExcecao(cupom.getId(), "Cupom não encontrado para atualização.");
     }
 
-    // Retorno alterado de Optional<CupomPromocional> para CupomPromocional
+   
     public CupomPromocional buscarPorId(String id) {
         for (int i = 0; i < proximoIndice; i++) {
             if (cupons[i] != null && cupons[i].getId().equals(id)) {
-                return cupons[i]; // Retorna o CupomPromocional diretamente
+                return cupons[i]; 
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 
     public List<CupomPromocional> buscarTodos() {
@@ -76,13 +75,14 @@ public class CupomPromocionalRepositorioArray {
         cupons[proximoIndice] = null;
     }
 
-    // Retorno alterado de Optional<CupomPromocional> para CupomPromocional
+  
     public CupomPromocional buscarPorCodigo(String codigo) {
         for (int i = 0; i < proximoIndice; i++) {
             if (cupons[i] != null && cupons[i].getCodigo().equalsIgnoreCase(codigo)) {
-                return cupons[i]; // Retorna o CupomPromocional diretamente
+                return cupons[i];
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 }
+
