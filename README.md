@@ -85,3 +85,72 @@ Projeto-Livraria/
 │ └── Programa.java
 
 └── README.md
+
+
+
+---
+
+## 🧭 Diagrama de Classes Simplificado
+
+```mermaid
+classDiagram
+    class Usuario {
+        - id : String
+        - nome : String
+        - email : String
+        - senha : String
+        + getRoles() : List<String>
+    }
+
+    class Admin {
+        + Admin(id, nome, email, senha)
+    }
+
+    class Cliente {
+        + Cliente(id, nome, email, senha)
+    }
+
+    Usuario <|-- Admin
+    Usuario <|-- Cliente
+
+    class Livro {
+        - id : int
+        - titulo : String
+        - autor : String
+        - preco : double
+        - estoque : int
+    }
+
+    class Pedido {
+        - id : int
+        - cliente : Cliente
+        - data : Date
+        - itens : List<ItemPedido>
+        - valorTotal : double
+        - status : StatusPedido
+    }
+
+    class Pagamento {
+        - metodo : String
+        - valor : double
+        - status : String
+    }
+
+    class AbstractRepositorio~T~ {
+        # itens : T[]
+        # proximaPosicao : int
+        + inserir(item : T)
+        + listar() : T[]
+    }
+
+    class LivroRepositorio
+    class PedidoRepositorio
+    class UsuarioRepositorio
+
+    AbstractRepositorio <|-- LivroRepositorio
+    AbstractRepositorio <|-- PedidoRepositorio
+    AbstractRepositorio <|-- UsuarioRepositorio
+
+    Pedido --> Pagamento
+    Pedido --> Livro
+    Pedido --> Cliente
