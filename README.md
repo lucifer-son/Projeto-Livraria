@@ -72,14 +72,6 @@ Projeto-Livraria/
 
 │ │ └── UsuarioRepositorio.java
 
-│ ├── service/
-
-│ │ ├── LivroService.java
-
-│ │ ├── PedidoService.java
-
-│ │ └── UsuarioService.java
-
 │ └── programa/
 
 │ └── Programa.java
@@ -170,20 +162,10 @@ classDiagram
         - status : String
     }
 
-    class AbstractRepositorio~T~ {
-        # itens : T[]
-        # proximaPosicao : int
-        + inserir(item : T)
-        + listar() : T[]
-    }
-
     class LivroRepositorio
     class PedidoRepositorio
     class UsuarioRepositorio
 
-    AbstractRepositorio <|-- LivroRepositorio
-    AbstractRepositorio <|-- PedidoRepositorio
-    AbstractRepositorio <|-- UsuarioRepositorio
 
     Pedido --> Pagamento
     Pedido --> Livro
