@@ -1,3 +1,5 @@
+<div align="center">
+
 # 📚 Projeto Livraria 
 
 ![Java](https://img.shields.io/badge/Java-22+-orange?logo=openjdk)
@@ -6,6 +8,8 @@
 ![Contribuições](https://img.shields.io/badge/Contribuições-Bem--vindas-success)
 
 ---
+
+</div>
 
 ## 🏪 Sobre o Projeto
 
