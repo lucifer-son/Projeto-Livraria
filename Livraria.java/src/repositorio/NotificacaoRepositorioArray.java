@@ -5,7 +5,7 @@ import model.Notificacao;
 
 import java.util.ArrayList;
 import java.util.List;
-// import java.util.Optional; // Removido
+
 
 public class NotificacaoRepositorioArray {
 
@@ -37,14 +37,14 @@ public class NotificacaoRepositorioArray {
         throw new EntidadeNaoEncontradaExcecao(notificacao.getId(), "Notificação não encontrada para atualização.");
     }
 
-    // Retorno alterado de Optional<Notificacao> para Notificacao
+  
     public Notificacao buscarPorId(String id) {
         for (int i = 0; i < proximoIndice; i++) {
             if (notificacoes[i] != null && notificacoes[i].getId().equals(id)) {
-                return notificacoes[i]; // Retorna a Notificacao diretamente
+                return notificacoes[i]; 
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 
     public List<Notificacao> buscarTodos() {
@@ -76,3 +76,4 @@ public class NotificacaoRepositorioArray {
         notificacoes[proximoIndice] = null;
     }
 }
+
