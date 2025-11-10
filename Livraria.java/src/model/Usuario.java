@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Usuario {
-    private String id; // ALTERADO
+    private String id; 
     private String login;
     private String senha;
     private Set<String> roles;
@@ -14,18 +14,18 @@ public class Usuario {
         this.roles = new HashSet<>();
     }
 
-    public Usuario(String id, String login, String senha) { // ALTERADO
+    public Usuario(String id, String login, String senha) { 
         this.id = id;
         this.login = login;
         this.senha = senha;
         this.roles = new HashSet<>();
     }
 
-    public String getId() { // ALTERADO
+    public String getId() { 
         return id;
     }
 
-    public void setId(String id) { // ALTERADO
+    public void setId(String id) { 
         this.id = id;
     }
 
@@ -61,7 +61,7 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "id='" + id + '\'' + // ALTERADO
+                "id='" + id + '\'' + 
                 ", login='" + login + '\'' +
                 ", roles=" + roles +
                 '}';
@@ -72,7 +72,7 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id); // ALTERADO
+        return Objects.equals(id, usuario.id); 
     }
 
     @Override
@@ -80,3 +80,4 @@ public class Usuario {
         return Objects.hash(id);
     }
 }
+
