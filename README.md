@@ -155,7 +155,7 @@ classDiagram
     Pedido --> Livro
     Pedido --> Cliente
 
-
+---
 
 ⚙️ Como Executar o Projeto
 
