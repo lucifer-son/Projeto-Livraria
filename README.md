@@ -45,7 +45,7 @@ Projeto-Livraria/
 └── src/
 
     ├── cadastro/
-    
+  
     │   ├── produto/
     
     │   │   ├── CadastroAvaliacao.java
@@ -171,7 +171,7 @@ Projeto-Livraria/
         
 
 
-└── README.md
+
 ---
 
 ## ⚙️ Como Executar o Projeto
