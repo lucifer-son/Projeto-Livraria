@@ -5,12 +5,7 @@ import model.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
-// import java.util.Optional; // Removido
 
-/**
- * Implementação do repositório de Clientes usando um array de tamanho fixo.
- * Segue o estilo de implementação demonstrado em aula.
- */
 public class ClienteRepositorioArray {
 
     private final Cliente[] clientes;
@@ -41,14 +36,14 @@ public class ClienteRepositorioArray {
         throw new EntidadeNaoEncontradaExcecao(cliente.getId(), "Cliente não encontrado para atualização.");
     }
 
-    // Retorno alterado de Optional<Cliente> para Cliente
+  
     public Cliente buscarPorId(String id) {
         for (int i = 0; i < proximoIndice; i++) {
             if (clientes[i] != null && clientes[i].getId().equals(id)) {
                 return clientes[i]; // Retorna o cliente diretamente
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 
     public List<Cliente> buscarTodos() {
@@ -80,13 +75,14 @@ public class ClienteRepositorioArray {
         clientes[proximoIndice] = null;
     }
 
-    // Retorno alterado de Optional<Cliente> para Cliente
+  
     public Cliente buscarPorEmail(String email) {
         for (int i = 0; i < proximoIndice; i++) {
             if (clientes[i] != null && clientes[i].getEmail().equalsIgnoreCase(email)) {
-                return clientes[i]; // Retorna o cliente diretamente
+                return clientes[i]; 
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 }
+
