@@ -1,6 +1,6 @@
 # 📚 Projeto Livraria 
 
-![Java](https://img.shields.io/badge/Java-17+-orange?logo=openjdk)
+![Java](https://img.shields.io/badge/Java-22+-orange?logo=openjdk)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/Licença-MIT-blue)
 ![Contribuições](https://img.shields.io/badge/Contribuições-Bem--vindas-success)
