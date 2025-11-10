@@ -85,8 +85,42 @@ Projeto-Livraria/
 │ └── Programa.java
 
 └── README.md
+---
+
+## ⚙️ Como Executar o Projeto
 
 
+    Clone o repositório:
+    git clone https://github.com/lucifer-son/Projeto-Livraria.git
+
+    Abra o projeto na IDE de sua preferência:
+    IntelliJ IDEA
+    Eclipse
+    VS Code com extensão Java
+
+    Execute a classe principal:
+    src/programa/Programa.java
+
+    Saída esperada:
+    --- Iniciando Testes do Sistema da Livraria ---
+
+---
+
+# 👨‍💻 Autores
+
+📍 Desenvolvido como projeto acadêmico para estudo de POO em Java.
+
+Rafael Melo
+🌐 GitHub - lucifer-son
+
+Mariana Oliveira
+🌐 GitHub - Mari-olima
+
+João Lucas
+🌐 GitHub - joaoluc90
+
+Nickollas Vital
+🌐 GitHub - Nickollasg1 
 
 ---
 
@@ -155,21 +189,7 @@ classDiagram
     Pedido --> Livro
     Pedido --> Cliente
 
----
 
-⚙️ Como Executar o Projeto
 
-    Clone o repositório:
-    git clone https://github.com/lucifer-son/Projeto-Livraria.git
 
-    Abra o projeto na IDE de sua preferência:
-    IntelliJ IDEA
-    Eclipse
-    VS Code com extensão Java
-
-    Execute a classe principal:
-    src/programa/Programa.java
-
-    Saída esperada:
-    --- Iniciando Testes do Sistema da Livraria ---
 
