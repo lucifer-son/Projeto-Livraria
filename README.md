@@ -41,38 +41,71 @@ O sistema foi estruturado com foco em modularidade e clareza, dividindo responsa
 
 
 Projeto-Livraria/
+└── src/
+    ├── cadastro/
+    │   ├── produto/
+    │   │   ├── CadastroAvaliacao.java
+    │   │   ├── CadastroCarrinho.java
+    │   │   ├── CadastroCupomPromocional.java
+    │   │   ├── CadastroDevolucao.java
+    │   │   ├── CadastroLivro.java
+    │   │   ├── CadastroNotificacao.java
+    │   │   ├── CadastroPagamento.java
+    │   │   ├── CadastroPedido.java
+    │   │   └── CadastroWishList.java
+    │   └── usuario/
+    │       ├── CadastroCliente.java
+    │       └── CadastroUsuario.java
+    │
+    ├── excecoes/
+    │   ├── AutenticacaoFalhaExcecao.java
+    │   ├── CarrinhoVazioExcecao.java
+    │   ├── CupomExpiradoExcecao.java
+    │   ├── CupomInvalidoExcecao.java
+    │   ├── CupomJaUtilizadoExcecao.java
+    │   ├── EmailInvalidoExcecao.java
+    │   ├── EntidadeJaExistenteExcecao.java
+    │   ├── EntidadeNaoEncontradaExcecao.java
+    │   ├── EstoqueInsuficienteExcecao.java
+    │   ├── EstoqueInvalidoExcecao.java
+    │   ├── OperacaoNaoPermitidaExcecao.java
+    │   ├── PrecoInvalidoExcecao.java
+    │   ├── QuantidadeInvalidaExcecao.java
+    │   └── StatusPedidoInvalidoExcecao.java
+    │
+    ├── main/
+    │   ├── Fachada.java
+    │   └── Programa.java
+    │
+    ├── model/
+    │   ├── Avaliacao.java
+    │   ├── Carrinho.java
+    │   ├── Cliente.java
+    │   ├── CupomPromocional.java
+    │   ├── Devolucao.java
+    │   ├── Endereco.java
+    │   ├── ItemPedido.java
+    │   ├── Livro.java
+    │   ├── Notificacao.java
+    │   ├── Pagamento.java
+    │   ├── Pedido.java
+    │   ├── RelatorioVendas.java
+    │   ├── Usuario.java
+    │   └── WishList.java
+    │
+    └── repositorio/
+        ├── AvaliacaoRepositorioArray.java
+        ├── CarrinhoRepositorioArray.java
+        ├── ClienteRepositorioArray.java
+        ├── CupomPromocionalRepositorioArray.java
+        ├── DevolucaoRepositorioArray.java
+        ├── LivroRepositorioArray.java
+        ├── NotificacaoRepositorioArray.java
+        ├── PagamentoRepositorioArray.java
+        ├── PedidoRepositorioArray.java
+        ├── UsuarioRepositorioArray.java
+        └── WishListRepositorioArray.java
 
-├── src/
-
-│ ├── model/
-
-│ │ ├── Livro.java
-
-│ │ ├── Pedido.java
-
-│ │ ├── Usuario.java
-
-│ │ ├── Admin.java
-
-│ │ ├── Cliente.java
-
-│ │ ├── Pagamento.java
-
-│ │ ├── Devolucao.java
-
-│ │ └── EnderecoEntrega.java
-
-│ ├── repository/
-
-│ │ ├── LivroRepositorio.java
-
-│ │ ├── PedidoRepositorio.java
-
-│ │ └── UsuarioRepositorio.java
-
-│ └── programa/
-
-│ └── Programa.java
 
 └── README.md
 ---
