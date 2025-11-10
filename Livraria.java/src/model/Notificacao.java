@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Notificacao {
-    private String id; // ALTERADO
+    private String id; 
     private String tipo;
     private String mensagem;
     private Date data;
@@ -12,7 +12,7 @@ public class Notificacao {
 
     public Notificacao() {}
 
-    public Notificacao(String id, String tipo, String mensagem, Date data, String status) { // ALTERADO
+    public Notificacao(String id, String tipo, String mensagem, Date data, String status) { 
         this.id = id;
         this.tipo = tipo;
         this.mensagem = mensagem;
@@ -20,11 +20,11 @@ public class Notificacao {
         this.status = status;
     }
 
-    public String getId() { // ALTERADO
+    public String getId() {
         return id;
     }
 
-    public void setId(String id) { // ALTERADO
+    public void setId(String id) { 
         this.id = id;
     }
 
@@ -67,7 +67,7 @@ public class Notificacao {
     @Override
     public String toString() {
         return "Notificacao{" +
-                "id='" + id + '\'' + // ALTERADO
+                "id='" + id + '\'' + 
                 ", tipo='" + tipo + '\'' +
                 ", mensagem='" + mensagem + '\'' +
                 ", data=" + data +
@@ -88,3 +88,4 @@ public class Notificacao {
         return Objects.hash(id);
     }
 }
+
