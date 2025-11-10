@@ -1,0 +1,62 @@
+package cadastro.usuario;
+
+import model.Usuario;
+import repositorio.UsuarioRepositorioArray;
+import excecoes.EntidadeJaExistenteExcecao;
+import excecoes.EntidadeNaoEncontradaExcecao;
+
+import java.util.List;
+// import java.util.Optional; // Removido
+
+public class CadastroUsuario {
+
+    private final UsuarioRepositorioArray repositorio;
+
+    public CadastroUsuario() {
+        this.repositorio = new UsuarioRepositorioArray();
+    }
+
+    public void cadastrar(Usuario usuario) throws EntidadeJaExistenteExcecao {
+        // Verificação alterada de .isPresent() para != null
+        if (repositorio.buscarPorId(usuario.getId()) != null) {
+            throw new EntidadeJaExistenteExcecao(usuario.getId(), "Já existe um usuário com o ID " + usuario.getId());
+        }
+        repositorio.inserir(usuario);
+    }
+
+    public void atualizar(Usuario usuario) throws EntidadeNaoEncontradaExcecao {
+        // Verificação alterada de .isEmpty() para == null
+        if (repositorio.buscarPorId(usuario.getId()) == null) {
+            throw new EntidadeNaoEncontradaExcecao(usuario.getId(), "Usuário não encontrado para atualização.");
+        }
+        repositorio.atualizar(usuario);
+    }
+
+    public void remover(String id) throws EntidadeNaoEncontradaExcecao {
+        // Verificação alterada de .isEmpty() para == null
+        if (repositorio.buscarPorId(id) == null) {
+            throw new EntidadeNaoEncontradaExcecao(id, "Usuário não encontrado para remoção.");
+        }
+        repositorio.deletarPorId(id);
+    }
+
+    // Retorno alterado de Optional<Usuario> para Usuario
+    public Usuario buscarPorId(String id) {
+        return repositorio.buscarPorId(id);
+    }
+
+    public List<Usuario> buscarTodos() {
+        return repositorio.buscarTodos();
+    }
+
+    // Retorno alterado de Optional<Usuario> para Usuario
+    public Usuario buscarPorLogin(String login) {
+        return repositorio.buscarPorLogin(login);
+    }
+
+    public void listar() {
+        for (Usuario usuario : repositorio.buscarTodos()) {
+            System.out.println(usuario);
+        }
+    }
+}
