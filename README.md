@@ -66,17 +66,15 @@ Projeto-Livraria/
     
     │   │   ├── CadastroPagamento.java
     
-    │   │   ├── CadastroPedido.java
-    
-    │   │   └── CadastroWishList.java
-    
     │   └── usuario/
     
     │       ├── CadastroCliente.java
     
     │       └── CadastroUsuario.java
     
-    │
+    │    ├── CadastroPedido.java
+    │    ├── CadastroWishlist.java   
+    
     ├── excecoes/
     
     │   ├── AutenticacaoFalhaExcecao.java
