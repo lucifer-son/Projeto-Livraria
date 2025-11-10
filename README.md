@@ -155,7 +155,9 @@ classDiagram
     Pedido --> Livro
     Pedido --> Cliente
 
-## ⚙️ Como Executar o Projeto
+
+
+⚙️ Como Executar o Projeto
 
     Clone o repositório:
     git clone https://github.com/lucifer-son/Projeto-Livraria.git
