@@ -154,3 +154,20 @@ classDiagram
     Pedido --> Pagamento
     Pedido --> Livro
     Pedido --> Cliente
+
+## ⚙️ Como Executar o Projeto
+
+    Clone o repositório:
+    git clone https://github.com/lucifer-son/Projeto-Livraria.git
+
+    Abra o projeto na IDE de sua preferência:
+    IntelliJ IDEA
+    Eclipse
+    VS Code com extensão Java
+
+    Execute a classe principal:
+    src/programa/Programa.java
+
+    Saída esperada:
+    --- Iniciando Testes do Sistema da Livraria ---
+
