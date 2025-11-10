@@ -18,7 +18,7 @@ public class Cliente {
     private List<Pedido> historicoPedidos;
 
     public Cliente(String id, String nome, String email, String senha, List<String> telefones, List<Endereco> enderecos, Date dataRegistro) throws EmailInvalidoExcecao {
-        // Validação básica de e-mail
+     
         if (email == null || !email.contains("@") || !email.contains(".")) {
             throw new EmailInvalidoExcecao("Formato de e-mail inválido: " + email);
         }
@@ -133,3 +133,4 @@ public class Cliente {
         return Objects.hash(id);
     }
 }
+
