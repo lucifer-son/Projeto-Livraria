@@ -1,4 +1,4 @@
-# 📚 Projeto Livraria Online
+# 📚 Projeto Livraria 
 
 ![Java](https://img.shields.io/badge/Java-17+-orange?logo=openjdk)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
@@ -9,7 +9,7 @@
 
 ## 🏪 Sobre o Projeto
 
-O **Projeto Livraria Online** é um sistema desenvolvido em **Java** que simula o funcionamento de uma livraria digital.  
+O **Projeto Livraria** é um sistema desenvolvido em **Java** pelos alunos de Introdução à Programação 2, que simula o funcionamento de uma livraria digital.  
 Seu objetivo é aplicar **conceitos avançados de Programação Orientada a Objetos (POO)**, como **herança**, **abstração**, **encapsulamento**, **polimorfismo** e **repositórios genéricos**.
 
 O sistema foi estruturado com foco em modularidade e clareza, dividindo responsabilidades entre as camadas de **modelo**, **repositório**, **serviço** e **execução**.
