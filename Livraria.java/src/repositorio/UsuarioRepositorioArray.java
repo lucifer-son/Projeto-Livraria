@@ -5,7 +5,7 @@ import model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
-// import java.util.Optional; // Removido
+
 
 public class UsuarioRepositorioArray {
 
@@ -37,14 +37,14 @@ public class UsuarioRepositorioArray {
         throw new EntidadeNaoEncontradaExcecao(usuario.getId(), "Usuário não encontrado para atualização.");
     }
 
-    // Retorno alterado de Optional<Usuario> para Usuario
+    
     public Usuario buscarPorId(String id) {
         for (int i = 0; i < proximoIndice; i++) {
             if (usuarios[i] != null && usuarios[i].getId().equals(id)) {
                 return usuarios[i]; // Retorna o usuário diretamente
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 
     public List<Usuario> buscarTodos() {
@@ -76,13 +76,14 @@ public class UsuarioRepositorioArray {
         usuarios[proximoIndice] = null;
     }
 
-    // Retorno alterado de Optional<Usuario> para Usuario
+  
     public Usuario buscarPorLogin(String login) {
         for (int i = 0; i < proximoIndice; i++) {
             if (usuarios[i] != null && usuarios[i].getLogin().equalsIgnoreCase(login)) {
                 return usuarios[i]; // Retorna o usuário diretamente
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 }
+
