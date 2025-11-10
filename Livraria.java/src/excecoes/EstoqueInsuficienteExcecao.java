@@ -1,9 +1,5 @@
 package excecoes;
 
-/**
- * Exceção lançada quando uma operação de decremento de estoque resulta em quantidade insuficiente.
- * É uma exceção checada (checked exception), exigindo tratamento ou declaração.
- */
 public class EstoqueInsuficienteExcecao extends Exception {
     private final String idLivro;
     private final int quantidadeSolicitada;
@@ -36,3 +32,4 @@ public class EstoqueInsuficienteExcecao extends Exception {
         return estoqueDisponivel;
     }
 }
+
