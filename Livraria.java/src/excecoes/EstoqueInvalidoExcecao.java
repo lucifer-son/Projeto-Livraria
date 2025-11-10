@@ -1,9 +1,6 @@
 package excecoes;
 
-/**
- * Exceção lançada quando uma operação tenta definir um valor de estoque inválido (ex: negativo).
- * É uma exceção checada (checked exception), exigindo tratamento ou declaração.
- */
+
 public class EstoqueInvalidoExcecao extends Exception {
     private final String idLivro;
     private final int estoqueTentado;
@@ -28,3 +25,4 @@ public class EstoqueInvalidoExcecao extends Exception {
         return estoqueTentado;
     }
 }
+
