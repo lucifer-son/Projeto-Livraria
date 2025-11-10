@@ -39,3 +39,48 @@ O sistema foi estruturado com foco em modularidade e clareza, dividindo responsa
 
 ## 🗂️ Estrutura do Projeto
 
+
+Projeto-Livraria/
+├── src/
+
+│ ├── model/
+
+│ │ ├── Livro.java
+
+│ │ ├── Pedido.java
+
+│ │ ├── Usuario.java
+
+│ │ ├── Admin.java
+
+│ │ ├── Cliente.java
+
+│ │ ├── Pagamento.java
+
+│ │ ├── Devolucao.java
+
+│ │ └── EnderecoEntrega.java
+
+│ ├── repository/
+
+│ │ ├── AbstractRepositorio.java
+
+│ │ ├── LivroRepositorio.java
+
+│ │ ├── PedidoRepositorio.java
+
+│ │ └── UsuarioRepositorio.java
+
+│ ├── service/
+
+│ │ ├── LivroService.java
+
+│ │ ├── PedidoService.java
+
+│ │ └── UsuarioService.java
+
+│ └── programa/
+
+│ └── Programa.java
+
+└── README.md
