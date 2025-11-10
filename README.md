@@ -64,8 +64,6 @@ Projeto-Livraria/
 
 │ ├── repository/
 
-│ │ ├── AbstractRepositorio.java
-
 │ │ ├── LivroRepositorio.java
 
 │ │ ├── PedidoRepositorio.java
