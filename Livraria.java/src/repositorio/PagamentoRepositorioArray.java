@@ -5,7 +5,7 @@ import model.Pagamento;
 
 import java.util.ArrayList;
 import java.util.List;
-// import java.util.Optional; // Removido
+
 
 public class PagamentoRepositorioArray {
 
@@ -37,14 +37,14 @@ public class PagamentoRepositorioArray {
         throw new EntidadeNaoEncontradaExcecao(pagamento.getId(), "Pagamento não encontrado para atualização.");
     }
 
-    // Retorno alterado de Optional<Pagamento> para Pagamento
+    
     public Pagamento buscarPorId(String id) {
         for (int i = 0; i < proximoIndice; i++) {
             if (pagamentos[i] != null && pagamentos[i].getId().equals(id)) {
                 return pagamentos[i]; // Retorna o Pagamento diretamente
             }
         }
-        return null; // Retorna null se não encontrar
+        return null; 
     }
 
     public List<Pagamento> buscarTodos() {
@@ -76,3 +76,4 @@ public class PagamentoRepositorioArray {
         pagamentos[proximoIndice] = null;
     }
 }
+
