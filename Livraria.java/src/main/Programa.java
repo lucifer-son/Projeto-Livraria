@@ -6,8 +6,6 @@ import java.util.List;
 
 import model.*;
 
-import cadastro.*;
-
 import excecoes.*; 
 
 public class Programa {
@@ -18,7 +16,7 @@ public class Programa {
         
         Fachada fachada = Fachada.getInstance();
 
-        System.out.println("\n--- Testes de Sucesso (Caminho Feliz) ---");
+        System.out.println("\n--- Testes de Sucesso ---");
 
         try {
             // --- Cadastro de Livro ---
