@@ -65,11 +65,6 @@ public class Programa {
             fachada.cadastrarPagamento(novoPagamento);
             System.out.println("OK: Pagamento cadastrado com sucesso.");
 
-            // --- Cadastro de Notificacao ---
-            Notificacao novaNotificacao = new Notificacao("NOT001", "PEDIDO_ENVIADO", "Seu pedido foi enviado!", new Date(), "ENVIADA");
-            fachada.cadastrarNotificacao(novaNotificacao);
-            System.out.println("OK: Notificação cadastrada com sucesso.");
-
             // --- Cadastro de CupomPromocional ---
             CupomPromocional novoCupom = new CupomPromocional("CUP001", "PROMO10", "PORCENTAGEM", new Date(), new Date(), 10.0, 100);
             fachada.cadastrarCupomPromocional(novoCupom);
@@ -95,8 +90,6 @@ public class Programa {
             fachada.listarDevolucoes();
             System.out.println("\nPagamentos cadastrados:");
             fachada.listarPagamentos();
-            System.out.println("\nNotificações cadastradas:");
-            fachada.listarNotificacoes();
             fachada.listarCuponsPromocionais();
 
             // --- Testes de Busca e Atualização ---
@@ -233,21 +226,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Notificacao ---
-            try {
-                System.out.println("\nBuscando Notificacao NOT001...");
-                Notificacao n = fachada.buscarNotificacaoPorId("NOT001");
-                System.out.println("OK: Notificação encontrada: " + n.getMensagem());
-                n.setStatus("LIDA");
-                fachada.atualizarNotificacao(n);
-                Notificacao n2 = fachada.buscarNotificacaoPorId("NOT001");
-                if (!n2.getStatus().equals("LIDA")) throw new Exception("Status da notificação não foi atualizado.");
-                System.out.println("OK: Notificação atualizada. Novo status: " + n2.getStatus());
-            } catch (Exception e) {
-                System.out.println("ERRO no teste de busca/atualização de Notificacao: " + e.getMessage());
-                houveErros = true;
-            }
-
             // --- CupomPromocional ---
             try {
                 System.out.println("\nBuscando Cupom CUP001...");
@@ -264,7 +242,7 @@ public class Programa {
             }
 
         } catch (Exception e) {
-            System.out.println("ERRO INESPERADO NO CAMINHO FELIZ: " + e.getMessage()); // Alterado para System.out
+            System.out.println("ERRO INESPERADO NO CAMINHO FELIZ: " + e.getMessage()); 
             houveErros = true;
         }
 
@@ -276,32 +254,32 @@ public class Programa {
             fachada.cadastrarLivro(livroDuplicado);
             System.out.println("FALHA: Livro duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar livro duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de livro duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar livro duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de livro duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             Cliente clienteDuplicado = new Cliente("CLI001", "Ana P. Duplicada", "ana.p@email.com", "senha456", new ArrayList<>(), new ArrayList<>(), new Date());
             fachada.cadastrarCliente(clienteDuplicado);
             System.out.println("FALHA: Cliente duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar cliente duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de cliente duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar cliente duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de cliente duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             Pedido pedidoDuplicado = new Pedido.Builder("PED001", "CLI001", new Date()).build();
             fachada.cadastrarPedido(pedidoDuplicado);
             System.out.println("FALHA: Pedido duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar pedido duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de pedido duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar pedido duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de pedido duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             Usuario usuarioDuplicado = new Usuario("USR001", "admin_dup", "outrasenha");
             fachada.cadastrarUsuario(usuarioDuplicado);
             System.out.println("FALHA: Usuário duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar usuário duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de usuário duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar usuário duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de usuário duplicado: " + e.getMessage()); houveErros = true; }
 
         
         try {
@@ -309,80 +287,72 @@ public class Programa {
             fachada.cadastrarCarrinho(carrinhoDuplicado);
             System.out.println("FALHA: Carrinho duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar carrinho duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de carrinho duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar carrinho duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de carrinho duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             WishList wishListDuplicada = new WishList("WSH001");
             fachada.cadastrarWishList(wishListDuplicada);
             System.out.println("FALHA: WishList duplicada cadastrada (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar WishList duplicada: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de WishList duplicada: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar WishList duplicada: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de WishList duplicada: " + e.getMessage()); houveErros = true; }
         
         try {
             Avaliacao avaliacaoDuplicada = new Avaliacao("AV001", 1, "Ruim", new Date(), false);
             fachada.cadastrarAvaliacao(avaliacaoDuplicada);
             System.out.println("FALHA: Avaliação duplicada cadastrada (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar avaliação duplicada: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de avaliação duplicada: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar avaliação duplicada: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de avaliação duplicada: " + e.getMessage()); houveErros = true; }
         
         try {
             Devolucao devolucaoDuplicada = new Devolucao("DEV001", "Outro motivo", new Date(), "EM_ANALISE");
             fachada.cadastrarDevolucao(devolucaoDuplicada);
             System.out.println("FALHA: Devolução duplicada cadastrada (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar devolução duplicada: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de devolução duplicada: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar devolução duplicada: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de devolução duplicada: " + e.getMessage()); houveErros = true; }
         
         try {
             Pagamento pagamentoDuplicado = new Pagamento("PAG001", "Boleto", "5678", "PENDENTE", new Date());
             fachada.cadastrarPagamento(pagamentoDuplicado);
             System.out.println("FALHA: Pagamento duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar pagamento duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de pagamento duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
-        
-        try {
-            Notificacao notificacaoDuplicada = new Notificacao("NOT001", "PEDIDO_ENTREGUE", "Seu pedido foi entregue!", new Date(), "LIDA");
-            fachada.cadastrarNotificacao(notificacaoDuplicada);
-            System.out.println("FALHA: Notificação duplicada cadastrada (NÃO DEVERIA ACONTECER).");
-            houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar notificação duplicada: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de notificação duplicada: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar pagamento duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de pagamento duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             CupomPromocional cupomDuplicado = new CupomPromocional("CUP001", "PROMO20", "FIXO", new Date(), new Date(), 20.0, 50);
             fachada.cadastrarCupomPromocional(cupomDuplicado);
             System.out.println("FALHA: Cupom duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar cupom duplicado: " + e.getMessage()); // Alterado para System.out
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de cupom duplicado: " + e.getMessage()); houveErros = true; } // Alterado para System.out
+        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar cupom duplicado: " + e.getMessage());
+        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de cupom duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             Livro livroEstoque = new Livro("LIV-ESTOQUE", "Livro de Teste", List.of("Autor"), "Editora", "ISBN", 2023, "Desc", 50.0, 10, 0.5, "Cat", "img", 100);
-            livroEstoque.diminuirEstoque(5); // Operação válida
-            livroEstoque.diminuirEstoque(10); // Deve falhar
+            livroEstoque.diminuirEstoque(5);
+            livroEstoque.diminuirEstoque(10); 
             System.out.println("FALHA: Estoque diminuído além do limite (NÃO DEVERIA ACONTECER).");
             houveErros = true;
         } catch (EstoqueInsuficienteExcecao e) {
-            System.out.println("OK: Erro esperado ao tentar diminuir estoque além do disponível: " + e.getMessage()); // Alterado para System.out
+            System.out.println("OK: Erro esperado ao tentar diminuir estoque além do disponível: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("ERRO INESPERADO no teste de estoque insuficiente: " + e.getMessage()); // Alterado para System.out
+            System.out.println("ERRO INESPERADO no teste de estoque insuficiente: " + e.getMessage());
             houveErros = true;
         }
         
         try {
             Devolucao devolucao = new Devolucao("DEV-TESTE", "Produto com defeito", new Date(), "EM_ANALISE");
-            devolucao.aprovar(); // Operação válida
-            devolucao.recusar(); // Deve falhar
+            devolucao.aprovar();
+            devolucao.recusar();
             System.out.println("FALHA: Devolução recusada após aprovação (NÃO DEVERIA ACONTECER).");
             houveErros = true;
         } catch (OperacaoNaoPermitidaExcecao e) {
-            System.out.println("OK: Erro esperado ao tentar uma operação não permitida: " + e.getMessage()); // Alterado para System.out
+            System.out.println("OK: Erro esperado ao tentar uma operação não permitida: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("ERRO INESPERADO no teste de operação não permitida: " + e.getMessage()); // Alterado para System.out
+            System.out.println("ERRO INESPERADO no teste de operação não permitida: " + e.getMessage());
             houveErros = true;
         }
         
@@ -392,11 +362,6 @@ public class Programa {
             fachada.removerCupomPromocional("CUP001");
             if (fachada.buscarCupomPromocionalPorId("CUP001") != null) throw new Exception("Cupom não foi removido.");
             System.out.println("OK: Cupom removido.");
-
-            System.out.println("Removendo Notificacao NOT001...");
-            fachada.removerNotificacao("NOT001");
-            if (fachada.buscarNotificacaoPorId("NOT001") != null) throw new Exception("Notificação não foi removida.");
-            System.out.println("OK: Notificação removida.");
 
             System.out.println("Removendo Pagamento PAG001...");
             fachada.removerPagamento("PAG001");
@@ -452,7 +417,8 @@ public class Programa {
         if (!houveErros) {
             System.out.println("\nTodos os testes foram concluídos com sucesso!");
         } else {
-            System.err.println("\n!!! Testes concluídos COM ERROS. Por favor, verifique as mensagens de erro acima. !!!"); // Alterado para System.err
+            System.err.println("\n!!! Testes concluídos COM ERROS. Por favor, verifique as mensagens de erro acima. !!!");
         }
     }
 }
+
