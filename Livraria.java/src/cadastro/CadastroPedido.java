@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroPedido {
 
-    private final PedidoRepositorioArray repositorio;
+    private PedidoRepositorioArray repositorio;
 
     public CadastroPedido() {
         this.repositorio = new PedidoRepositorioArray();
@@ -54,3 +54,4 @@ public class CadastroPedido {
         }
     }
 }
+
