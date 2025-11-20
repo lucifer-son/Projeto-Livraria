@@ -9,9 +9,9 @@ import java.util.List;
 
 public class UsuarioRepositorioArray {
 
-    private final Usuario[] usuarios;
+    private Usuario[] usuarios;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public UsuarioRepositorioArray() {
         this.usuarios = new Usuario[TAMANHO_MAXIMO];
@@ -86,4 +86,5 @@ public class UsuarioRepositorioArray {
         return null; 
     }
 }
+
 
