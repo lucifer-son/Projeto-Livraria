@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroDevolucao {
 
-    private final DevolucaoRepositorioArray repositorio;
+    private DevolucaoRepositorioArray repositorio;
 
     public CadastroDevolucao() {
         this.repositorio = new DevolucaoRepositorioArray();
@@ -50,3 +50,4 @@ public class CadastroDevolucao {
         }
     }
 }
+
