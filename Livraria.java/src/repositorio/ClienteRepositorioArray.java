@@ -10,7 +10,7 @@ public class ClienteRepositorioArray {
 
     private Cliente[] clientes;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public ClienteRepositorioArray() {
         this.clientes = new Cliente[TAMANHO_MAXIMO];
@@ -85,5 +85,6 @@ public class ClienteRepositorioArray {
         return null; 
     }
 }
+
 
 
