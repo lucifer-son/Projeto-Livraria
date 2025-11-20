@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CupomPromocionalRepositorioArray {
 
-    private final CupomPromocional[] cupons;
+    private CupomPromocional[] cupons;
     private int proximoIndice;
     private static final int TAMANHO_MAXIMO = 100;
 
@@ -85,4 +85,5 @@ public class CupomPromocionalRepositorioArray {
         return null; 
     }
 }
+
 
