@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroCarrinho {
 
-    private final CarrinhoRepositorioArray repositorio;
+    private CarrinhoRepositorioArray repositorio;
 
     public CadastroCarrinho() {
         this.repositorio = new CarrinhoRepositorioArray();
@@ -50,3 +50,4 @@ public class CadastroCarrinho {
         }
     }
 }
+
