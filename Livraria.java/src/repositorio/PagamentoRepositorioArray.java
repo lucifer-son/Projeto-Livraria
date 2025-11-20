@@ -9,9 +9,9 @@ import java.util.List;
 
 public class PagamentoRepositorioArray {
 
-    private final Pagamento[] pagamentos;
+    private Pagamento[] pagamentos;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public PagamentoRepositorioArray() {
         this.pagamentos = new Pagamento[TAMANHO_MAXIMO];
@@ -76,4 +76,5 @@ public class PagamentoRepositorioArray {
         pagamentos[proximoIndice] = null;
     }
 }
+
 
