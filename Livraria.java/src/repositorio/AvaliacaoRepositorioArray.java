@@ -10,7 +10,7 @@ public class AvaliacaoRepositorioArray {
 
     private Avaliacao[] avaliacoes;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public AvaliacaoRepositorioArray() {
         this.avaliacoes = new Avaliacao[TAMANHO_MAXIMO];
@@ -74,5 +74,6 @@ public class AvaliacaoRepositorioArray {
         avaliacoes[proximoIndice] = null;
     }
 }
+
 
 
