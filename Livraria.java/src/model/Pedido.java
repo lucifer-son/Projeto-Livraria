@@ -7,17 +7,17 @@ import java.util.List;
 import java.util.Objects;
 
 public class Pedido {
-    private final String id;
-    private final String cliente;
-    private final Date data;
+    private String id;
+    private String cliente;
+    private Date data;
     private StatusPedido status;
-    private final Endereco endereco;
-    private final String metodoPagamento;
-    private final double frete;
-    private final double valorTotal;
-    private final List<ItemPedido> itens;
-    private final Pagamento pagamento;
-    private final Devolucao devolucao;
+    private Endereco endereco;
+    private String metodoPagamento;
+    private double frete;
+    private double valorTotal;
+    private List<ItemPedido> itens;
+    private Pagamento pagamento;
+    private Devolucao devolucao;
 
     public enum StatusPedido {
         PENDENTE,
@@ -181,3 +181,4 @@ public class Pedido {
         }
     }
 }
+
