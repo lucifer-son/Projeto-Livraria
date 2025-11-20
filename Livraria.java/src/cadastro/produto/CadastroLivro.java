@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroLivro {
 
-    private final LivroRepositorioArray repositorio;
+    private LivroRepositorioArray repositorio;
 
     public CadastroLivro() {
         this.repositorio = new LivroRepositorioArray();
@@ -54,3 +54,4 @@ public class CadastroLivro {
         }
     }
 }
+
