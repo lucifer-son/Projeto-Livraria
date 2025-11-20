@@ -21,7 +21,6 @@ public class Fachada {
     private CadastroAvaliacao cadastroAvaliacao;
     private CadastroDevolucao cadastroDevolucao;
     private CadastroPagamento cadastroPagamento;
-    private CadastroNotificacao cadastroNotificacao;
     private CadastroCupomPromocional cadastroCupomPromocional;
 
     private Fachada() {
@@ -34,7 +33,6 @@ public class Fachada {
         this.cadastroAvaliacao = new CadastroAvaliacao();
         this.cadastroDevolucao = new CadastroDevolucao();
         this.cadastroPagamento = new CadastroPagamento();
-        this.cadastroNotificacao = new CadastroNotificacao();
         this.cadastroCupomPromocional = new CadastroCupomPromocional();
     }
 
@@ -187,22 +185,6 @@ public class Fachada {
     }
     public void listarPagamentos() {
         cadastroPagamento.listar();
-    }
-
-    public void cadastrarNotificacao(Notificacao notificacao) throws EntidadeJaExistenteExcecao {
-        cadastroNotificacao.cadastrar(notificacao);
-    }
-    public void atualizarNotificacao(Notificacao notificacao) throws EntidadeNaoEncontradaExcecao {
-        cadastroNotificacao.atualizar(notificacao);
-    }
-    public void removerNotificacao(String id) throws EntidadeNaoEncontradaExcecao {
-        cadastroNotificacao.remover(id);
-    }
-    public Notificacao buscarNotificacaoPorId(String id) {
-        return cadastroNotificacao.buscarPorId(id);
-    }
-    public void listarNotificacoes() {
-        cadastroNotificacao.listar();
     }
 
     public void cadastrarCupomPromocional(CupomPromocional cupom) throws EntidadeJaExistenteExcecao {
