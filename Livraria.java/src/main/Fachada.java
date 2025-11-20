@@ -12,17 +12,17 @@ public class Fachada {
 
     private static Fachada instance;
 
-    private final CadastroCliente cadastroCliente;
-    private final CadastroLivro cadastroLivro;
-    private final CadastroPedido cadastroPedido;
-    private final CadastroUsuario cadastroUsuario;
-    private final CadastroCarrinho cadastroCarrinho;
-    private final CadastroWishList cadastroWishList;
-    private final CadastroAvaliacao cadastroAvaliacao;
-    private final CadastroDevolucao cadastroDevolucao;
-    private final CadastroPagamento cadastroPagamento;
-    private final CadastroNotificacao cadastroNotificacao;
-    private final CadastroCupomPromocional cadastroCupomPromocional;
+    private CadastroCliente cadastroCliente;
+    private CadastroLivro cadastroLivro;
+    private CadastroPedido cadastroPedido;
+    private CadastroUsuario cadastroUsuario;
+    private CadastroCarrinho cadastroCarrinho;
+    private CadastroWishList cadastroWishList;
+    private CadastroAvaliacao cadastroAvaliacao;
+    private CadastroDevolucao cadastroDevolucao;
+    private CadastroPagamento cadastroPagamento;
+    private CadastroNotificacao cadastroNotificacao;
+    private CadastroCupomPromocional cadastroCupomPromocional;
 
     private Fachada() {
         this.cadastroCliente = new CadastroCliente();
