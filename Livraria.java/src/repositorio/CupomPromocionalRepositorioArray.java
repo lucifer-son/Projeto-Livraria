@@ -10,7 +10,7 @@ public class CupomPromocionalRepositorioArray {
 
     private CupomPromocional[] cupons;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public CupomPromocionalRepositorioArray() {
         this.cupons = new CupomPromocional[TAMANHO_MAXIMO];
@@ -85,5 +85,6 @@ public class CupomPromocionalRepositorioArray {
         return null; 
     }
 }
+
 
 
