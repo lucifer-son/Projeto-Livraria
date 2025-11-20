@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClienteRepositorioArray {
 
-    private final Cliente[] clientes;
+    private Cliente[] clientes;
     private int proximoIndice;
     private static final int TAMANHO_MAXIMO = 100;
 
@@ -85,4 +85,5 @@ public class ClienteRepositorioArray {
         return null; 
     }
 }
+
 
