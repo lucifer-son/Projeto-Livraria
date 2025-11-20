@@ -8,9 +8,9 @@ import java.util.List;
 
 public class LivroRepositorioArray {
 
-    private final Livro[] livros;
+    private Livro[] livros;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public LivroRepositorioArray() {
         this.livros = new Livro[TAMANHO_MAXIMO];
@@ -84,3 +84,4 @@ public class LivroRepositorioArray {
         return livrosDoAutor;
     }
 }
+
