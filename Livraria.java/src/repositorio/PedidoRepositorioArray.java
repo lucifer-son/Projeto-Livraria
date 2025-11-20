@@ -8,9 +8,9 @@ import java.util.List;
 
 public class PedidoRepositorioArray {
 
-    private final Pedido[] pedidos;
+    private Pedido[] pedidos;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public PedidoRepositorioArray() {
         this.pedidos = new Pedido[TAMANHO_MAXIMO];
@@ -84,3 +84,4 @@ public class PedidoRepositorioArray {
         return pedidosComStatus;
     }
 }
+
