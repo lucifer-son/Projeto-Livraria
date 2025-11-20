@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroWishList {
 
-    private final WishListRepositorioArray repositorio;
+    private WishListRepositorioArray repositorio;
 
     public CadastroWishList() {
         this.repositorio = new WishListRepositorioArray();
