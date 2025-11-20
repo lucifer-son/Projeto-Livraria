@@ -8,9 +8,9 @@ import java.util.List;
 
 public class DevolucaoRepositorioArray {
 
-    private final Devolucao[] devolucoes;
+    private Devolucao[] devolucoes;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public DevolucaoRepositorioArray() {
         this.devolucoes = new Devolucao[TAMANHO_MAXIMO];
@@ -74,3 +74,4 @@ public class DevolucaoRepositorioArray {
         devolucoes[proximoIndice] = null;
     }
 }
+
