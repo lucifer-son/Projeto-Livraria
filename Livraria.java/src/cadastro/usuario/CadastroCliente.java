@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CadastroCliente {
 
-    private final ClienteRepositorioArray repositorio;
+    private ClienteRepositorioArray repositorio;
 
 
     public CadastroCliente() {
@@ -65,3 +65,4 @@ public class CadastroCliente {
         }
     }
 }
+
