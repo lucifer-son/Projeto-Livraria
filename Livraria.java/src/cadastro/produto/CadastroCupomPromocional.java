@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroCupomPromocional {
 
-    private final CupomPromocionalRepositorioArray repositorio;
+    private CupomPromocionalRepositorioArray repositorio;
 
     public CadastroCupomPromocional() {
         this.repositorio = new CupomPromocionalRepositorioArray();
@@ -54,3 +54,4 @@ public class CadastroCupomPromocional {
         }
     }
 }
+
