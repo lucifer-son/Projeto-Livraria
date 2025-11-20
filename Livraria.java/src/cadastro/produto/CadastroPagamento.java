@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CadastroPagamento {
 
-    private final PagamentoRepositorioArray repositorio;
+    private PagamentoRepositorioArray repositorio;
 
     public CadastroPagamento() {
         this.repositorio = new PagamentoRepositorioArray();
@@ -50,3 +50,4 @@ public class CadastroPagamento {
         }
     }
 }
+
