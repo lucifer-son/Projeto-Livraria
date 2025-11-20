@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CadastroUsuario {
 
-    private final UsuarioRepositorioArray repositorio;
+    private UsuarioRepositorioArray repositorio;
 
     public CadastroUsuario() {
         this.repositorio = new UsuarioRepositorioArray();
@@ -58,3 +58,4 @@ public class CadastroUsuario {
         }
     }
 }
+
