@@ -8,7 +8,7 @@ import java.util.List;
 
 public class AvaliacaoRepositorioArray {
 
-    private final Avaliacao[] avaliacoes;
+    private Avaliacao[] avaliacoes;
     private int proximoIndice;
     private static final int TAMANHO_MAXIMO = 100;
 
@@ -74,4 +74,5 @@ public class AvaliacaoRepositorioArray {
         avaliacoes[proximoIndice] = null;
     }
 }
+
 
