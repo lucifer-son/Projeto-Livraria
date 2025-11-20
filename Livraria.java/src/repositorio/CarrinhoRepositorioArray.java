@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CarrinhoRepositorioArray {
 
-    private final Carrinho[] carrinhos;
+    private Carrinho[] carrinhos;
     private int proximoIndice;
     private static final int TAMANHO_MAXIMO = 100;
 
@@ -74,3 +74,4 @@ public class CarrinhoRepositorioArray {
         carrinhos[proximoIndice] = null;
     }
 }
+
