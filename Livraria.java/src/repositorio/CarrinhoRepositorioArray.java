@@ -10,7 +10,7 @@ public class CarrinhoRepositorioArray {
 
     private Carrinho[] carrinhos;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public CarrinhoRepositorioArray() {
         this.carrinhos = new Carrinho[TAMANHO_MAXIMO];
@@ -74,4 +74,5 @@ public class CarrinhoRepositorioArray {
         carrinhos[proximoIndice] = null;
     }
 }
+
 
