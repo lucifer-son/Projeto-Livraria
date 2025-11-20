@@ -8,9 +8,9 @@ import java.util.List;
 
 public class WishListRepositorioArray {
 
-    private final WishList[] wishLists;
+    private WishList[] wishLists;
     private int proximoIndice;
-    private static final int TAMANHO_MAXIMO = 100;
+    private static int TAMANHO_MAXIMO = 100;
 
     public WishListRepositorioArray() {
         this.wishLists = new WishList[TAMANHO_MAXIMO];
