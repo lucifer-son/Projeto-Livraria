@@ -9,6 +9,7 @@ public class Pagamento {
     private String dados;
     private String status;
     private Date data;
+    private double valorTotal;
 
     public Pagamento(String id, String tipo, String dados, String status, Date data) {
         this.id = id;
@@ -16,6 +17,7 @@ public class Pagamento {
         this.dados = dados;
         this.status = status;
         this.data = data;
+        this.valorTotal = valorTotal;
     }
 
     public String getId() {
@@ -58,6 +60,14 @@ public class Pagamento {
         this.data = data;
     }
 
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     @Override
     public String toString() {
         return "Pagamento{" +
@@ -65,6 +75,7 @@ public class Pagamento {
                 ", tipo='" + tipo + '\'' +
                 ", status='" + status + '\'' +
                 ", data=" + data +
+                ", valorTotal=" + valorTotal +
                 '}';
     }
 

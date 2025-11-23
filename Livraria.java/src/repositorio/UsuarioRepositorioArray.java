@@ -9,13 +9,22 @@ import java.util.List;
 
 public class UsuarioRepositorioArray {
 
+    private static UsuarioRepositorioArray instance;
+
     private Usuario[] usuarios;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public UsuarioRepositorioArray() {
+    private UsuarioRepositorioArray() {
         this.usuarios = new Usuario[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static UsuarioRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new UsuarioRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Usuario usuario) {

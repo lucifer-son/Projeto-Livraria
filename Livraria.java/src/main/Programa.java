@@ -408,6 +408,73 @@ public class Programa {
             if (fachada.buscarLivroPorId("LIV001") != null) throw new Exception("Livro não foi removido.");
             System.out.println("OK: Livro removido.");
 
+            System.out.println("\n=== TESTE DO VALOR TOTAL DO CARRINHO ===");
+
+            System.out.println("\n=== TESTE DO VALOR TOTAL DO CARRINHO (VERSÃO ROBUSTA) ===");
+
+            try {
+                Livro l1 = new Livro(
+                        "TST1",
+                        "Java Básico",
+                        java.util.Arrays.asList("Autor X"),
+                        "Editora A",
+                        "111111",
+                        2023,
+                        "Livro introdutório",
+                        50.0,      // preco
+                        10,        // estoque
+                        0.5,
+                        "Programação",
+                        "img",
+                        200
+                );
+
+                Livro l2 = new Livro(
+                        "TST2",
+                        "Python Avançado",
+                        java.util.Arrays.asList("Autor Y"),
+                        "Editora B",
+                        "222222",
+                        2024,
+                        "Livro avançado",
+                        80.0,      // preco
+                        5,         // estoque
+                        0.7,
+                        "Programação",
+                        "img",
+                        350
+                );
+
+                ItemPedido item1 = new ItemPedido("1", "Livro A", 2, 50.0);
+                ItemPedido item2 = new ItemPedido("2", "Livro B", 1, 80.0);
+
+
+                Carrinho testeCarrinho = new Carrinho("TEST-CAR", java.util.Arrays.asList(item1, item2));
+
+                double valorCalculado = testeCarrinho.getValorTotal();
+                double valorEsperado = 2 * l1.getPreco() + 1 * l2.getPreco();
+
+                System.out.println("Valor esperado:  R$ " + valorEsperado);
+                System.out.println("Valor calculado: R$ " + valorCalculado);
+
+                if (Double.compare(valorEsperado, valorCalculado) == 0) {
+                    System.out.println("✔ TESTE OK: Valor total está correto!");
+                } else {
+                    System.out.println("❌ ERRO: Valor total incorreto!");
+                }
+
+            } catch (excecoes.PrecoInvalidoExcecao | excecoes.EstoqueInvalidoExcecao e) {
+                System.err.println("ERRO: falha ao criar Livro de teste: " + e.getMessage());
+                e.printStackTrace();
+
+
+
+        } catch (Throwable t) {
+                System.err.println("ERRO INESPERADO no teste do carrinho: " + t.getMessage());
+                t.printStackTrace();
+            }
+
+
         } catch (Exception e) {
             System.out.println("ERRO durante a fase de remoção: " + e.getMessage());
             houveErros = true;

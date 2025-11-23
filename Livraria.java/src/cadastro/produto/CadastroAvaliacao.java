@@ -12,7 +12,7 @@ public class CadastroAvaliacao {
     private AvaliacaoRepositorioArray repositorio;
 
     public CadastroAvaliacao() {
-        this.repositorio = new AvaliacaoRepositorioArray();
+        this.repositorio = AvaliacaoRepositorioArray.getInstance();
     }
 
     public void cadastrar(Avaliacao avaliacao) throws EntidadeJaExistenteExcecao {

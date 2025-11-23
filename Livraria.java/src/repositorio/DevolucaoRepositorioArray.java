@@ -8,13 +8,22 @@ import java.util.List;
 
 public class DevolucaoRepositorioArray {
 
+    private static DevolucaoRepositorioArray instance;
+
     private Devolucao[] devolucoes;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public DevolucaoRepositorioArray() {
+    private DevolucaoRepositorioArray() {
         this.devolucoes = new Devolucao[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static DevolucaoRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new DevolucaoRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Devolucao devolucao) {

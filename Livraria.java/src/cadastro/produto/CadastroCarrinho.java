@@ -12,7 +12,7 @@ public class CadastroCarrinho {
     private CarrinhoRepositorioArray repositorio;
 
     public CadastroCarrinho() {
-        this.repositorio = new CarrinhoRepositorioArray();
+        this.repositorio = CarrinhoRepositorioArray.getInstance();
     }
 
     public void cadastrar(Carrinho carrinho) throws EntidadeJaExistenteExcecao {

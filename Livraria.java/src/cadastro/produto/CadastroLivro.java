@@ -12,7 +12,7 @@ public class CadastroLivro {
     private LivroRepositorioArray repositorio;
 
     public CadastroLivro() {
-        this.repositorio = new LivroRepositorioArray();
+        this.repositorio = LivroRepositorioArray.getInstance();
     }
 
     public void cadastrar(Livro livro) throws EntidadeJaExistenteExcecao {

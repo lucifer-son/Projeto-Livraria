@@ -8,13 +8,22 @@ import java.util.List;
 
 public class LivroRepositorioArray {
 
+    private static LivroRepositorioArray instance;
+
     private Livro[] livros;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public LivroRepositorioArray() {
+    private LivroRepositorioArray() {
         this.livros = new Livro[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static LivroRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new LivroRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Livro livro) {

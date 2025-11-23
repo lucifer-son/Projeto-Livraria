@@ -15,7 +15,7 @@ public class CadastroCliente {
 
 
     public CadastroCliente() {
-        this.repositorio = new ClienteRepositorioArray();
+        this.repositorio = ClienteRepositorioArray.getInstance();
     }
 
     public void cadastrar(Cliente cliente) throws EntidadeJaExistenteExcecao {

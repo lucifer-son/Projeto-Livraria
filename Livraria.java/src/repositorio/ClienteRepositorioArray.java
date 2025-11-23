@@ -8,13 +8,22 @@ import java.util.List;
 
 public class ClienteRepositorioArray {
 
+    private static ClienteRepositorioArray instance;
+
     private Cliente[] clientes;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public ClienteRepositorioArray() {
+    private ClienteRepositorioArray() {
         this.clientes = new Cliente[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static ClienteRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new ClienteRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Cliente cliente) {

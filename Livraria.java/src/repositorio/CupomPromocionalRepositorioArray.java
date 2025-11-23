@@ -8,13 +8,22 @@ import java.util.List;
 
 public class CupomPromocionalRepositorioArray {
 
+    private static CupomPromocionalRepositorioArray instance;
+
     private CupomPromocional[] cupons;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public CupomPromocionalRepositorioArray() {
+    private CupomPromocionalRepositorioArray() {
         this.cupons = new CupomPromocional[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static CupomPromocionalRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new CupomPromocionalRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(CupomPromocional cupom) {

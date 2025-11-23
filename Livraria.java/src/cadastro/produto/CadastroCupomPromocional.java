@@ -12,7 +12,7 @@ public class CadastroCupomPromocional {
     private CupomPromocionalRepositorioArray repositorio;
 
     public CadastroCupomPromocional() {
-        this.repositorio = new CupomPromocionalRepositorioArray();
+        this.repositorio = CupomPromocionalRepositorioArray.getInstance();
     }
 
     public void cadastrar(CupomPromocional cupom) throws EntidadeJaExistenteExcecao {

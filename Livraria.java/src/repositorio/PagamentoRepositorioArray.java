@@ -9,13 +9,22 @@ import java.util.List;
 
 public class PagamentoRepositorioArray {
 
+    private static PagamentoRepositorioArray instance;
+
     private Pagamento[] pagamentos;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public PagamentoRepositorioArray() {
+    private PagamentoRepositorioArray() {
         this.pagamentos = new Pagamento[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static PagamentoRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new PagamentoRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Pagamento pagamento) {

@@ -16,8 +16,6 @@ public class Pedido {
     private double frete;
     private double valorTotal;
     private List<ItemPedido> itens;
-    private Pagamento pagamento;
-    private Devolucao devolucao;
 
     public enum StatusPedido {
         PENDENTE,
@@ -37,8 +35,6 @@ public class Pedido {
         this.frete = builder.frete;
         this.valorTotal = builder.valorTotal;
         this.itens = builder.itens;
-        this.pagamento = builder.pagamento;
-        this.devolucao = builder.devolucao;
     }
 
     public String getId() {
@@ -84,14 +80,6 @@ public class Pedido {
         return itens;
     }
 
-    public Pagamento getPagamento() {
-        return pagamento;
-    }
-
-    public Devolucao getDevolucao() {
-        return devolucao;
-    }
-
     @Override
     public String toString() {
         return "Pedido{" +
@@ -117,17 +105,15 @@ public class Pedido {
     }
 
     public static class Builder {
-        private final String id;
-        private final String cliente;
-        private final Date data;
+        private String id;
+        private String cliente;
+        private Date data;
         private StatusPedido status;
         private Endereco endereco;
         private String metodoPagamento;
         private double frete;
         private double valorTotal;
         private List<ItemPedido> itens;
-        private Pagamento pagamento;
-        private Devolucao devolucao;
 
         public Builder(String id, String cliente, Date data) {
             this.id = id;
@@ -166,19 +152,8 @@ public class Pedido {
             return this;
         }
 
-        public Builder withPagamento(Pagamento pagamento) {
-            this.pagamento = pagamento;
-            return this;
-        }
-
-        public Builder withDevolucao(Devolucao devolucao) {
-            this.devolucao = devolucao;
-            return this;
-        }
-
         public Pedido build() {
             return new Pedido(this);
         }
     }
 }
-

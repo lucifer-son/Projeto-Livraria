@@ -12,7 +12,7 @@ public class CadastroPedido {
     private PedidoRepositorioArray repositorio;
 
     public CadastroPedido() {
-        this.repositorio = new PedidoRepositorioArray();
+        this.repositorio = PedidoRepositorioArray.getInstance();
     }
 
     public void cadastrar(Pedido pedido) throws EntidadeJaExistenteExcecao {

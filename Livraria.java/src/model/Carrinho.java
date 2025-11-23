@@ -6,10 +6,12 @@ import java.util.Objects;
 public class Carrinho {
     private String id;
     private List<ItemPedido> itens;
+    private double valorTotal;
 
     public Carrinho(String id, List<ItemPedido> itens) {
         this.id = id;
         this.itens = itens;
+        this.valorTotal = calcularValorTotal();
     }
 
     public String getId() {
@@ -28,11 +30,27 @@ public class Carrinho {
         this.itens = itens;
     }
 
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    private double calcularValorTotal() {
+        if (itens == null) {
+            return 0.0;
+        }
+        double total = 0.0;
+        for (ItemPedido item : itens) {
+            total += item.getPrecoUnitario() * item.getQuantidade();
+        }
+        return total;
+    }
+
     @Override
     public String toString() {
         return "Carrinho{" +
                 "id='" + id + '\'' +
                 ", numeroDeItens=" + (itens != null ? itens.size() : 0) +
+                ", valorTotal=" + valorTotal +
                 '}';
     }
 

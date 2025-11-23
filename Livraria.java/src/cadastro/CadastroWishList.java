@@ -12,7 +12,7 @@ public class CadastroWishList {
     private WishListRepositorioArray repositorio;
 
     public CadastroWishList() {
-        this.repositorio = new WishListRepositorioArray();
+        this.repositorio = WishListRepositorioArray.getInstance();
     }
 
     public void cadastrar(WishList wishList) throws EntidadeJaExistenteExcecao {

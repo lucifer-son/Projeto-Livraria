@@ -12,7 +12,7 @@ public class CadastroPagamento {
     private PagamentoRepositorioArray repositorio;
 
     public CadastroPagamento() {
-        this.repositorio = new PagamentoRepositorioArray();
+        this.repositorio = PagamentoRepositorioArray.getInstance();
     }
 
     public void cadastrar(Pagamento pagamento) throws EntidadeJaExistenteExcecao {

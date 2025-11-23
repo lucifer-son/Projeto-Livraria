@@ -12,7 +12,7 @@ public class CadastroDevolucao {
     private DevolucaoRepositorioArray repositorio;
 
     public CadastroDevolucao() {
-        this.repositorio = new DevolucaoRepositorioArray();
+        this.repositorio = DevolucaoRepositorioArray.getInstance();
     }
 
     public void cadastrar(Devolucao devolucao) throws EntidadeJaExistenteExcecao {

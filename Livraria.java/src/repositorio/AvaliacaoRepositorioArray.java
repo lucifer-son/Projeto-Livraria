@@ -8,13 +8,22 @@ import java.util.List;
 
 public class AvaliacaoRepositorioArray {
 
+    private static AvaliacaoRepositorioArray instance;
+
     private Avaliacao[] avaliacoes;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public AvaliacaoRepositorioArray() {
+    private AvaliacaoRepositorioArray() {
         this.avaliacoes = new Avaliacao[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static AvaliacaoRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new AvaliacaoRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Avaliacao avaliacao) {

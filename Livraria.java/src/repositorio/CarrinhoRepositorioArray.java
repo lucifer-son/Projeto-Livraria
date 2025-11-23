@@ -8,13 +8,22 @@ import java.util.List;
 
 public class CarrinhoRepositorioArray {
 
+    private static CarrinhoRepositorioArray instance;
+
     private Carrinho[] carrinhos;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public CarrinhoRepositorioArray() {
+    private CarrinhoRepositorioArray() {
         this.carrinhos = new Carrinho[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static CarrinhoRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new CarrinhoRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Carrinho carrinho) {

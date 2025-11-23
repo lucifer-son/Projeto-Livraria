@@ -8,13 +8,22 @@ import java.util.List;
 
 public class PedidoRepositorioArray {
 
+    private static PedidoRepositorioArray instance;
+
     private Pedido[] pedidos;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public PedidoRepositorioArray() {
+    private PedidoRepositorioArray() {
         this.pedidos = new Pedido[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static PedidoRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new PedidoRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(Pedido pedido) {

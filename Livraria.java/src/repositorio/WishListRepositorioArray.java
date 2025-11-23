@@ -8,13 +8,22 @@ import java.util.List;
 
 public class WishListRepositorioArray {
 
+    private static WishListRepositorioArray instance;
+
     private WishList[] wishLists;
     private int proximoIndice;
     private static int TAMANHO_MAXIMO = 100;
 
-    public WishListRepositorioArray() {
+    private WishListRepositorioArray() {
         this.wishLists = new WishList[TAMANHO_MAXIMO];
         this.proximoIndice = 0;
+    }
+
+    public static WishListRepositorioArray getInstance() {
+        if (instance == null) {
+            instance = new WishListRepositorioArray();
+        }
+        return instance;
     }
 
     public void inserir(WishList wishList) {

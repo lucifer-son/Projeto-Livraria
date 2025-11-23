@@ -13,7 +13,7 @@ public class CadastroUsuario {
     private UsuarioRepositorioArray repositorio;
 
     public CadastroUsuario() {
-        this.repositorio = new UsuarioRepositorioArray();
+        this.repositorio = UsuarioRepositorioArray.getInstance();
     }
 
     public void cadastrar(Usuario usuario) throws EntidadeJaExistenteExcecao {
