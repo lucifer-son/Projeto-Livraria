@@ -8,6 +8,9 @@ import cadastro.CadastroWishList;
 import model.*;
 import excecoes.*;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class Fachada {
 
     private static Fachada instance;
