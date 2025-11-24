@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import excecoes.EmailInvalidoExcecao;
+import java.util.ArrayList;
+
 
 public class Cliente {
     private String id;
@@ -29,6 +31,8 @@ public class Cliente {
         this.telefones = telefones;
         this.enderecos = enderecos;
         this.dataRegistro = dataRegistro;
+        this.wishlist = new WishList(id + "_wishlist"); 
+        this.historicoPedidos = new ArrayList<>();
     }
 
     public String getId() {
@@ -133,4 +137,3 @@ public class Cliente {
         return Objects.hash(id);
     }
 }
-
