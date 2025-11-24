@@ -53,5 +53,75 @@ public class CadastroPedido {
             System.out.println(pedido);
         }
     }
+
+    public List<String> gerarRelatorioVendas(LocalDate inicio, LocalDate fim, String tipo) {
+
+        List<Pedido> pedidos = repositorio.buscarTodos();
+        List<String> resultado = new ArrayList<>();
+        LocalDate dataAtual = inicio;
+
+        while (!dataAtual.isAfter(fim)) {
+
+            LocalDate periodoFim;
+
+            if (tipo.equalsIgnoreCase("diario")) {
+                periodoFim = dataAtual;
+
+            } else if (tipo.equalsIgnoreCase("semanal")) {
+                periodoFim = dataAtual.plusDays(6);
+
+            } else if (tipo.equalsIgnoreCase("mensal")) {
+                periodoFim = dataAtual.withDayOfMonth(dataAtual.lengthOfMonth());
+
+            } else {
+                resultado.add("Tipo inválido! Use: diario, semanal ou mensal.");
+                return resultado;
+            }
+
+            if (periodoFim.isAfter(fim)) {
+                periodoFim = fim;
+            }
+
+            int quantidade = 0;
+            double total = 0;
+
+            for (Pedido p : pedidos) {
+                LocalDate dataPedido = p.getData().toInstant()
+                        .atZone(java.time.ZoneId.systemDefault())
+                        .toLocalDate();
+
+                if (!dataPedido.isBefore(dataAtual) && !dataPedido.isAfter(periodoFim)) {
+                    quantidade++;
+                    total += p.getValorTotal();
+                }
+            }
+
+            String linha;
+
+            if (tipo.equalsIgnoreCase("diario")) {
+                linha = "Dia " + dataAtual +
+                        " | Pedidos: " + quantidade +
+                        " | Receita: R$ " + total;
+
+            } else if (tipo.equalsIgnoreCase("semanal")) {
+                linha = "Semana " + dataAtual + " até " + periodoFim +
+                        " | Pedidos: " + quantidade +
+                        " | Receita: R$ " + total;
+
+            } else {
+                linha = "Mês " + dataAtual.getMonthValue() + "/" + dataAtual.getYear() +
+                        " | Pedidos: " + quantidade +
+                        " | Receita: R$ " + total;
+            }
+
+            resultado.add(linha);
+
+            dataAtual = periodoFim.plusDays(1);
+        }
+
+        return resultado;
+    }
 }
+
+
 
