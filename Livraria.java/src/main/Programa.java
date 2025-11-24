@@ -61,14 +61,9 @@ public class Programa {
             System.out.println("OK: Devolução cadastrada com sucesso.");
 
             // --- Cadastro de Pagamento ---
-            Pagamento novoPagamento = new Pagamento("PAG001", "Cartão", "****1234", "APROVADO", new Date());
+            Pagamento novoPagamento = new Pagamento("PAG001", "PED001", "Cartão", "****1234", "APROVADO", new Date(), 150.0);
             fachada.cadastrarPagamento(novoPagamento);
             System.out.println("OK: Pagamento cadastrado com sucesso.");
-
-            // --- Cadastro de CupomPromocional ---
-            CupomPromocional novoCupom = new CupomPromocional("CUP001", "PROMO10", "PORCENTAGEM", new Date(), new Date(), 10.0, 100);
-            fachada.cadastrarCupomPromocional(novoCupom);
-            System.out.println("OK: Cupom cadastrado com sucesso.");
 
             // --- Testes de Listagem ---
             System.out.println("\n--- Listagem de Entidades ---");
@@ -90,7 +85,6 @@ public class Programa {
             fachada.listarDevolucoes();
             System.out.println("\nPagamentos cadastrados:");
             fachada.listarPagamentos();
-            fachada.listarCuponsPromocionais();
 
             // --- Testes de Busca e Atualização ---
             System.out.println("\n--- Testes de Busca e Atualização ---");
@@ -226,21 +220,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- CupomPromocional ---
-            try {
-                System.out.println("\nBuscando Cupom CUP001...");
-                CupomPromocional c = fachada.buscarCupomPromocionalPorId("CUP001");
-                System.out.println("OK: Cupom encontrado: " + c.getCodigo());
-                c.setAplicacaoMinima(15.0);
-                fachada.atualizarCupomPromocional(c);
-                CupomPromocional c2 = fachada.buscarCupomPromocionalPorId("CUP001");
-                if (c2.getAplicacaoMinima() != 15.0) throw new Exception("Valor do cupom não foi atualizado.");
-                System.out.println("OK: Cupom atualizado. Novo valor: " + c2.getAplicacaoMinima());
-            } catch (Exception e) {
-                System.out.println("ERRO no teste de busca/atualização de Cupom: " + e.getMessage());
-                houveErros = true;
-            }
-
         } catch (Exception e) {
             System.out.println("ERRO INESPERADO NO CAMINHO FELIZ: " + e.getMessage()); 
             houveErros = true;
@@ -315,20 +294,12 @@ public class Programa {
         } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de devolução duplicada: " + e.getMessage()); houveErros = true; }
         
         try {
-            Pagamento pagamentoDuplicado = new Pagamento("PAG001", "Boleto", "5678", "PENDENTE", new Date());
+            Pagamento pagamentoDuplicado = new Pagamento("PAG001", "PED001", "Boleto", "5678", "PENDENTE", new Date(), 150.0);
             fachada.cadastrarPagamento(pagamentoDuplicado);
             System.out.println("FALHA: Pagamento duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
         } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar pagamento duplicado: " + e.getMessage());
         } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de pagamento duplicado: " + e.getMessage()); houveErros = true; }
-        
-        try {
-            CupomPromocional cupomDuplicado = new CupomPromocional("CUP001", "PROMO20", "FIXO", new Date(), new Date(), 20.0, 50);
-            fachada.cadastrarCupomPromocional(cupomDuplicado);
-            System.out.println("FALHA: Cupom duplicado cadastrado (NÃO DEVERIA ACONTECER).");
-            houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar cupom duplicado: " + e.getMessage());
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de cupom duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             Livro livroEstoque = new Livro("LIV-ESTOQUE", "Livro de Teste", List.of("Autor"), "Editora", "ISBN", 2023, "Desc", 50.0, 10, 0.5, "Cat", "img", 100);
@@ -358,11 +329,6 @@ public class Programa {
         
         System.out.println("\n--- Testes de Remoção ---");
         try {
-            System.out.println("Removendo Cupom CUP001...");
-            fachada.removerCupomPromocional("CUP001");
-            if (fachada.buscarCupomPromocionalPorId("CUP001") != null) throw new Exception("Cupom não foi removido.");
-            System.out.println("OK: Cupom removido.");
-
             System.out.println("Removendo Pagamento PAG001...");
             fachada.removerPagamento("PAG001");
             if (fachada.buscarPagamentoPorId("PAG001") != null) throw new Exception("Pagamento não foi removido.");
@@ -488,4 +454,3 @@ public class Programa {
         }
     }
 }
-
