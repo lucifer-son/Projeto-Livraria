@@ -24,7 +24,6 @@ public class Fachada {
     private CadastroAvaliacao cadastroAvaliacao;
     private CadastroDevolucao cadastroDevolucao;
     private CadastroPagamento cadastroPagamento;
-    private CadastroCupomPromocional cadastroCupomPromocional;
 
     private Fachada() {
         this.cadastroCliente = new CadastroCliente();
@@ -36,7 +35,6 @@ public class Fachada {
         this.cadastroAvaliacao = new CadastroAvaliacao();
         this.cadastroDevolucao = new CadastroDevolucao();
         this.cadastroPagamento = new CadastroPagamento();
-        this.cadastroCupomPromocional = new CadastroCupomPromocional();
     }
 
     public static Fachada getInstance() {
@@ -192,21 +190,5 @@ public class Fachada {
     }
     public void listarPagamentos() {
         cadastroPagamento.listar();
-    }
-
-    public void cadastrarCupomPromocional(CupomPromocional cupom) throws EntidadeJaExistenteExcecao {
-        cadastroCupomPromocional.cadastrar(cupom);
-    }
-    public void atualizarCupomPromocional(CupomPromocional cupom) throws EntidadeNaoEncontradaExcecao {
-        cadastroCupomPromocional.atualizar(cupom);
-    }
-    public void removerCupomPromocional(String id) throws EntidadeNaoEncontradaExcecao {
-        cadastroCupomPromocional.remover(id);
-    }
-    public CupomPromocional buscarCupomPromocionalPorId(String id) {
-        return cadastroCupomPromocional.buscarPorId(id);
-    }
-    public void listarCuponsPromocionais() {
-        cadastroCupomPromocional.listar();
     }
 }
