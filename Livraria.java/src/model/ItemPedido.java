@@ -6,7 +6,6 @@ import excecoes.PrecoInvalidoExcecao;
 
 public class ItemPedido {
     private String id; // ALTERADO
-    private Pedido pedido;
     private String livro; // Usando o ID do livro
     private int quantidade;
     private double precoUnitario;
@@ -28,20 +27,12 @@ public class ItemPedido {
         return quantidade * precoUnitario;
     }
 
-    public String getId() { // ALTERADO
+    public String getId() {
         return id;
     }
 
-    public void setId(String id) { // ALTERADO
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public Pedido getPedido() {
-        return pedido;
-    }
-
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
     public String getLivro() {
@@ -74,7 +65,7 @@ public class ItemPedido {
     @Override
     public String toString() {
         return "ItemPedido{" +
-                "id='" + id + '\'' + // ALTERADO
+                "id='" + id + '\'' +
                 ", livro='" + livro + '\'' +
                 ", quantidade=" + quantidade +
                 ", precoUnitario=" + precoUnitario +
@@ -84,9 +75,9 @@ public class ItemPedido {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false; // CORRIGIDO AQUI
+        if (o == null || getClass() != o.getClass()) return false;
         ItemPedido that = (ItemPedido) o;
-        return Objects.equals(id, that.id); // ALTERADO
+        return Objects.equals(id, that.id);
     }
 
     @Override
