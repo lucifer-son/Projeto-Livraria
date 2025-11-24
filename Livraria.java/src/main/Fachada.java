@@ -91,6 +91,10 @@ public class Fachada {
         cadastroPedido.listar();
     }
 
+    public List<String> gerarRelatorioVendas(LocalDate inicio, LocalDate fim, String tipo) {
+        return cadastroPedido.gerarRelatorioVendas(inicio, fim, tipo);
+    }
+
     public void cadastrarUsuario(Usuario usuario) throws EntidadeJaExistenteExcecao {
         cadastroUsuario.cadastrar(usuario);
     }
