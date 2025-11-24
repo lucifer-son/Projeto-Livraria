@@ -5,14 +5,16 @@ import java.util.Objects;
 
 public class Pagamento {
     private String id;
+    private String pedidoId;
     private String tipo;
     private String dados;
     private String status;
     private Date data;
     private double valorTotal;
 
-    public Pagamento(String id, String tipo, String dados, String status, Date data) {
+    public Pagamento(String id, String pedidoId, String tipo, String dados, String status, Date data, double valorTotal) {
         this.id = id;
+        this.pedidoId = pedidoId;
         this.tipo = tipo;
         this.dados = dados;
         this.status = status;
@@ -26,6 +28,14 @@ public class Pagamento {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPedidoId() {
+        return pedidoId;
+    }
+
+    public void setPedidoId(String pedidoId) {
+        this.pedidoId = pedidoId;
     }
 
     public String getTipo() {
@@ -72,6 +82,7 @@ public class Pagamento {
     public String toString() {
         return "Pagamento{" +
                 "id='" + id + '\'' +
+                ", pedidoId='" + pedidoId + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", status='" + status + '\'' +
                 ", data=" + data +
