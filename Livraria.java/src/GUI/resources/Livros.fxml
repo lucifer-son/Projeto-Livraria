@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controladores.LivrosController">
+    <top>
+        <ToolBar>
+            <Button text="Voltar" onAction="#goBack"/>
+            <Label text="Livros" styleClass="title"/>
+        </ToolBar>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.6">
+            <TableView fx:id="livrosTable">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID"/>
+                    <TableColumn fx:id="colTitulo" text="Título"/>
+                    <TableColumn fx:id="colAutor" text="Autor"/>
+                    <TableColumn fx:id="colPreco" text="Preço"/>
+                    <TableColumn fx:id="colEstoque" text="Estoque"/>
+                </columns>
+            </TableView>
+            <VBox spacing="8">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Detalhes"/>
+                <TextArea fx:id="detalheArea" prefRowCount="8" wrapText="true"/>
+                <HBox spacing="8">
+                    <Button text="Adicionar ao Carrinho" onAction="#addToCart"/>
+                    <Button text="Ver Avaliações" onAction="#verAvaliacoes"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>
