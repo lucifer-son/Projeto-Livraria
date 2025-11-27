@@ -1,6 +1,6 @@
 package GUI.controladores;
 
-import model.Cliente; // ajuste conforme seu pacote model
+import model.Cliente;
 import GUI.BaseController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -29,3 +29,4 @@ public class ClientesController extends BaseController {
 
     @FXML public void goBack() { navigate("menu"); }
 }
+
