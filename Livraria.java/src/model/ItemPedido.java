@@ -5,12 +5,12 @@ import excecoes.QuantidadeInvalidaExcecao;
 import excecoes.PrecoInvalidoExcecao;
 
 public class ItemPedido {
-    private String id; // ALTERADO
-    private String livro; // Usando o ID do livro
+    private String id; 
+    private String livro; 
     private int quantidade;
     private double precoUnitario;
 
-    public ItemPedido(String id, String livro, int quantidade, double precoUnitario) throws QuantidadeInvalidaExcecao, PrecoInvalidoExcecao { // ALTERADO
+    public ItemPedido(String id, String livro, int quantidade, double precoUnitario) throws QuantidadeInvalidaExcecao, PrecoInvalidoExcecao {
         if (quantidade <= 0) {
             throw new QuantidadeInvalidaExcecao("A quantidade do item do pedido deve ser maior que zero.");
         }
@@ -85,3 +85,4 @@ public class ItemPedido {
         return Objects.hash(id);
     }
 }
+
