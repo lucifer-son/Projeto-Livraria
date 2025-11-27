@@ -12,12 +12,10 @@ public class PagamentoController extends BaseController {
 
     @FXML public void initialize() {
         metodoChoice.getItems().addAll("Cartão de Crédito", "Boleto", "PIX");
-        // carregar resumo do pedido via PedidoService
     }
 
     @FXML public void onPagar() {
         String metodo = metodoChoice.getValue();
-        // TODO: chamar PagamentoService / PedidoService
         Alert a = new Alert(Alert.AlertType.INFORMATION, "Pagamento realizado (placeholder).", ButtonType.OK);
         a.showAndWait();
         navigate("pedidos");
