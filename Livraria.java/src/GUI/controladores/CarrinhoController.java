@@ -10,7 +10,7 @@ public class CarrinhoController extends BaseController {
     @FXML private ListView<String> wishlistView;
 
     @FXML public void initialize() {
-        // carregar itens do carrinho e wishlist via CarrinhoService / WishlistService
+
     }
 
     @FXML public void removerItem() {}
