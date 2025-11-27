@@ -16,16 +16,13 @@ public class ClientesController extends BaseController {
 
     @FXML
     public void initialize() {
-        // configurar colunas e carregar clientes via ClienteService
     }
 
     @FXML public void novoCliente() {
-        // abrir formulário modal para criar cliente (placeholder)
     }
     @FXML public void editarCliente() {}
     @FXML public void excluirCliente() {}
     @FXML public void salvarEndereco() {
-        // TODO: integrar com EnderecoEntrega e ClienteService
         Alert a = new Alert(Alert.AlertType.INFORMATION, "Endereço salvo (placeholder).", ButtonType.OK);
         a.showAndWait();
     }
