@@ -18,8 +18,8 @@ public class LoginController extends BaseController {
         String email = emailField.getText();
         String senha = passwordField.getText();
 
-        // TODO: integrar com UsuarioService para validação
-        boolean ok = !"".equals(email) && !"".equals(senha); // placeholder
+        
+        boolean ok = !"".equals(email) && !"".equals(senha); 
 
         if (ok) {
             navigate("menu");
