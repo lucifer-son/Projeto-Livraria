@@ -1,6 +1,6 @@
 package GUI.controladores;
 
-import model.Usuario; // ajuste pacote
+import model.Usuario;
 import GUI.BaseController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -15,7 +15,6 @@ public class UsuarioController extends BaseController {
 
 
     @FXML public void initialize() {
-        // carregar usuarios via UsuarioService
     }
 
     @FXML public void novoUsuario() {}
