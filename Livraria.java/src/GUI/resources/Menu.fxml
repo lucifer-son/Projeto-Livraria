@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controladores.MenuController">
+    <top>
+        <ToolBar>
+            <Label text="Sistema Livraria"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Sair" onAction="#onLogout"/>
+        </ToolBar>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+            <Button text="Livros" onAction="#openLivros" maxWidth="200"/>
+            <Button text="Clientes" onAction="#openClientes" maxWidth="200"/>
+            <Button text="Usuário" onAction="#openUsuarios" maxWidth="200"/>
+            <Button text="Carrinho / Wishlist" onAction="#openCarrinho" maxWidth="200"/>
+            <Button text="Pagamento" onAction="#openPagamento" maxWidth="200"/>
+            <Button text="Pedido / Devoluções" onAction="#openPedidos" maxWidth="200"/>
+        </VBox>
+    </center>
+</BorderPane>
