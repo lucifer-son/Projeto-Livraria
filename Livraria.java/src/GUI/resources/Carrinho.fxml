@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controladores.CarrinhoController">
+    <top>
+        <ToolBar>
+            <Button onAction="#goBack" text="Voltar" />
+            <Label styleClass="title" text="Carrinho / Wishlist" />
+        </ToolBar>
+    </top>
+
+    <center>
+        <VBox spacing="8">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <Label text="Itens no Carrinho" />
+            <TableView fx:id="carrinhoTable">
+                <columns>
+                    <TableColumn text="Título" />
+                    <TableColumn text="Quantidade" />
+                    <TableColumn text="Preço Unit." />
+                    <TableColumn text="Subtotal" />
+                </columns>
+            </TableView>
+
+            <HBox spacing="8">
+                <Button onAction="#removerItem" text="Remover" />
+                <Button onAction="#moverParaWishlist" text="Mover para Wishlist" />
+                <Pane HBox.hgrow="ALWAYS" />
+                <Button onAction="#finalizarCompra" text="Finalizar Compra" />
+            </HBox>
+
+            <Separator />
+
+            <Label text="Wishlist" />
+            <ListView fx:id="wishlistView" />
+            <HBox spacing="8">
+                <Button onAction="#wishlistToCart" text="Adicionar ao Carrinho" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
