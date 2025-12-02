@@ -1,7 +1,7 @@
 package cadastro.produto;
 
 import model.Avaliacao;
-import repositorio.AvaliacaoRepositorioArray;
+import repositorio.AvaliacaoRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CadastroAvaliacao {
 
-    private AvaliacaoRepositorioArray repositorio;
+    private AvaliacaoRepositorioArquivojson repositorio;
 
     public CadastroAvaliacao() {
-        this.repositorio = AvaliacaoRepositorioArray.getInstance();
+        this.repositorio = AvaliacaoRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Avaliacao avaliacao) throws EntidadeJaExistenteExcecao {
@@ -50,4 +50,5 @@ public class CadastroAvaliacao {
         }
     }
 }
+
 
