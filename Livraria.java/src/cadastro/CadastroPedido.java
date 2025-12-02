@@ -1,7 +1,7 @@
 package cadastro;
 
 import model.Pedido;
-import repositorio.PedidoRepositorioArray;
+import repositorio.PedidoRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -11,10 +11,10 @@ import java.util.List;
 
 public class CadastroPedido {
 
-    private PedidoRepositorioArray repositorio;
+    private PedidoRepositorioArquivojson repositorio;
 
     public CadastroPedido() {
-        this.repositorio = PedidoRepositorioArray.getInstance();
+        this.repositorio = PedidoRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Pedido pedido) throws EntidadeJaExistenteExcecao {
@@ -124,6 +124,7 @@ public class CadastroPedido {
         return resultado;
     }
 }
+
 
 
 
