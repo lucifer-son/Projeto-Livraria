@@ -1,7 +1,7 @@
 package cadastro;
 
 import model.WishList;
-import repositorio.WishListRepositorioArray;
+import repositorio.WishListRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CadastroWishList {
 
-    private WishListRepositorioArray repositorio;
+    private WishListRepositorioArquivojson repositorio;
 
     public CadastroWishList() {
-        this.repositorio = WishListRepositorioArray.getInstance();
+        this.repositorio = WishListRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(WishList wishList) throws EntidadeJaExistenteExcecao {
