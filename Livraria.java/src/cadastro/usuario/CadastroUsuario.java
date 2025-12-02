@@ -1,7 +1,7 @@
 package cadastro.usuario;
 
 import model.Usuario;
-import repositorio.UsuarioRepositorioArray;
+import repositorio.UsuarioRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -10,10 +10,10 @@ import java.util.List;
 
 public class CadastroUsuario {
 
-    private UsuarioRepositorioArray repositorio;
+    private UsuarioRepositorioArquivojson repositorio;
 
     public CadastroUsuario() {
-        this.repositorio = UsuarioRepositorioArray.getInstance();
+        this.repositorio = UsuarioRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Usuario usuario) throws EntidadeJaExistenteExcecao {
@@ -58,4 +58,5 @@ public class CadastroUsuario {
         }
     }
 }
+
 
