@@ -1,7 +1,7 @@
 package cadastro.produto;
 
 import model.Pagamento;
-import repositorio.PagamentoRepositorioArray;
+import repositorio.PagamentoRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CadastroPagamento {
 
-    private PagamentoRepositorioArray repositorio;
+    private PagamentoRepositorioArquivojson repositorio;
 
     public CadastroPagamento() {
-        this.repositorio = PagamentoRepositorioArray.getInstance();
+        this.repositorio = PagamentoRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Pagamento pagamento) throws EntidadeJaExistenteExcecao {
@@ -50,4 +50,5 @@ public class CadastroPagamento {
         }
     }
 }
+
 
