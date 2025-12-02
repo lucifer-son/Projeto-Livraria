@@ -1,7 +1,7 @@
 package cadastro.produto;
 
 import model.Livro;
-import repositorio.LivroRepositorioArray;
+import repositorio.LivroRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CadastroLivro {
 
-    private LivroRepositorioArray repositorio;
+    private LivroRepositorioArquivojson repositorio;
 
     public CadastroLivro() {
-        this.repositorio = LivroRepositorioArray.getInstance();
+        this.repositorio = LivroRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Livro livro) throws EntidadeJaExistenteExcecao {
@@ -54,4 +54,5 @@ public class CadastroLivro {
         }
     }
 }
+
 
