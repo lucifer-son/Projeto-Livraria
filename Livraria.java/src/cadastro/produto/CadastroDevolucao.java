@@ -1,7 +1,7 @@
 package cadastro.produto;
 
 import model.Devolucao;
-import repositorio.DevolucaoRepositorioArray;
+import repositorio.DevolucaoRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CadastroDevolucao {
 
-    private DevolucaoRepositorioArray repositorio;
+    private DevolucaoRepositorioArquivojson repositorio;
 
     public CadastroDevolucao() {
-        this.repositorio = DevolucaoRepositorioArray.getInstance();
+        this.repositorio = DevolucaoRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Devolucao devolucao) throws EntidadeJaExistenteExcecao {
@@ -50,4 +50,5 @@ public class CadastroDevolucao {
         }
     }
 }
+
 
