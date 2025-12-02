@@ -1,7 +1,7 @@
 package cadastro.produto;
 
 import model.Carrinho;
-import repositorio.CarrinhoRepositorioArray;
+import repositorio.CarrinhoRepositorioArquivojson;
 import excecoes.EntidadeJaExistenteExcecao;
 import excecoes.EntidadeNaoEncontradaExcecao;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class CadastroCarrinho {
 
-    private CarrinhoRepositorioArray repositorio;
+    private CarrinhoRepositorioArquivojson repositorio;
 
     public CadastroCarrinho() {
-        this.repositorio = CarrinhoRepositorioArray.getInstance();
+        this.repositorio = CarrinhoRepositorioArquivojson.getInstance();
     }
 
     public void cadastrar(Carrinho carrinho) throws EntidadeJaExistenteExcecao {
@@ -50,4 +50,5 @@ public class CadastroCarrinho {
         }
     }
 }
+
 
