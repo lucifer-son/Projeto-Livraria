@@ -1,0 +1,131 @@
+[
+  {
+    "telefones": [],
+    "enderecos": [],
+    "dataRegistro": "Dec 2, 2025, 6:03:50 PM",
+    "wishlist": {
+      "id": "6453bc8a-8ffc-4c82-a2ac-41eed735daa6_wishlist",
+      "livrosDesejados": []
+    },
+    "historicoPedidos": [],
+    "id": "6453bc8a-8ffc-4c82-a2ac-41eed735daa6",
+    "nome": "Usuario Teste",
+    "email": "test@test.com",
+    "senha": "123"
+  },
+  {
+    "telefones": [
+      "81 996762985"
+    ],
+    "enderecos": [
+      {
+        "id": "5a75acae-9ae1-440c-aeb1-c43aa255bcef",
+        "rua": "Miguel Carneiro",
+        "numero": "190",
+        "complemento": "Vasco Da gama",
+        "cidade": "Recife",
+        "estado": "PE",
+        "cep": "52280-620",
+        "pais": "",
+        "enderecoEntrega": ""
+      }
+    ],
+    "dataRegistro": "Dec 2, 2025, 6:46:08 PM",
+    "wishlist": {
+      "id": "c08c2c78-6c07-4744-ab7c-348248bf5a04_wishlist",
+      "livrosDesejados": []
+    },
+    "historicoPedidos": [],
+    "id": "c08c2c78-6c07-4744-ab7c-348248bf5a04",
+    "nome": "Rafael",
+    "email": "rafael.gamelo@ufrpe.br",
+    "senha": "12345"
+  },
+  {
+    "telefones": [
+      "22211122233"
+    ],
+    "enderecos": [
+      {
+        "id": "900d043f-c43a-4018-8b8c-34a0afdfc000",
+        "rua": "rua",
+        "numero": "190",
+        "complemento": "varzea",
+        "cidade": "Olinda",
+        "estado": "PE",
+        "cep": "5645678",
+        "pais": "",
+        "enderecoEntrega": ""
+      }
+    ],
+    "dataRegistro": "Dec 2, 2025, 8:11:49 PM",
+    "wishlist": {
+      "id": "747d5b86-0590-425e-b0a0-289ab55ab9a0_wishlist",
+      "livrosDesejados": []
+    },
+    "historicoPedidos": [],
+    "id": "747d5b86-0590-425e-b0a0-289ab55ab9a0",
+    "nome": "rafael",
+    "email": "rafael@email.com",
+    "senha": "12345",
+    "tipo": "CLIENTE"
+  },
+  {
+    "telefones": [
+      "1234567890"
+    ],
+    "enderecos": [
+      {
+        "id": "c21ce922-56e1-490c-9f6f-fc3b02a11ad2",
+        "rua": "rua",
+        "numero": "2",
+        "complemento": "casa amarela",
+        "cidade": "Recife",
+        "estado": "Pernambuco",
+        "cep": "12345678",
+        "pais": "",
+        "enderecoEntrega": ""
+      }
+    ],
+    "dataRegistro": "Dec 2, 2025, 8:31:45 PM",
+    "wishlist": {
+      "id": "842012f5-3d64-4ccf-9e3b-0845172da3c5_wishlist",
+      "livrosDesejados": []
+    },
+    "historicoPedidos": [],
+    "id": "842012f5-3d64-4ccf-9e3b-0845172da3c5",
+    "nome": "Mariana",
+    "email": "mariana@gmail.com",
+    "senha": "12345",
+    "tipo": "CLIENTE"
+  },
+  {
+    "telefones": [
+      "12345678901"
+    ],
+    "enderecos": [
+      {
+        "id": "d68c6fd5-701d-482a-9c47-5dee76aac458",
+        "rua": "rua",
+        "numero": "190",
+        "complemento": "Vasco",
+        "cidade": "Recife",
+        "estado": "PE",
+        "cep": "52280620",
+        "pais": "",
+        "enderecoEntrega": ""
+      }
+    ],
+    "dataRegistro": "Dec 2, 2025, 8:35:23 PM",
+    "wishlist": {
+      "id": "3b9c8618-a185-419c-85f4-57c73a03fa08_wishlist",
+      "livrosDesejados": []
+    },
+    "historicoPedidos": [],
+    "id": "3b9c8618-a185-419c-85f4-57c73a03fa08",
+    "nome": "cliente",
+    "email": "cliente.novo@email.com",
+    "senha": "12345",
+    "tipo": "CLIENTE"
+  }
+]

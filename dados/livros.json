@@ -1,0 +1,71 @@
+[
+  {
+    "id": "e97f5313-054d-4532-a570-7b78d41d9635",
+    "titulo": "Harry Potter e a Pedra Filosofal ",
+    "autores": [
+      "J.K. Rowling"
+    ],
+    "anoPublicacao": 1997,
+    "descricao": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
+    "preco": 33.0,
+    "genero": "Fantasia",
+    "estoque": 12,
+    "peso": 0.0,
+    "numPaginas": 264
+  },
+  {
+    "id": "5c47deef-aa91-465d-ade1-0785c76399a2",
+    "titulo": "Box - O Senhor dos Anéis",
+    "autores": [
+      "J.R.R. Tolkien"
+    ],
+    "anoPublicacao": 1954,
+    "descricao": "O Senhor dos Anéis (The Lord of the Rings, no original) é um livro de alta fantasia, escrito pelo escritor britânico J. R. R. Tolkien. Escrita entre 1937 e 1949, com muitas partes criadas durante a Segunda Guerra Mundial,[1] a saga é uma continuação de O Hobbit (1937). Embora Tolkien tenha planejado realizá-la em volume único, a obra foi originalmente publicada em três volumes (The Fellowship of the Ring, The Two Towers e The Return of the King) entre 1954 e 1955, com cada volume contendo dois livros cada, e foi assim, em três volumes, que se tornou popular. Desde então, a obra foi reimpressa várias vezes e traduzida para mais de 40 línguas, vendendo mais de 160 milhões de cópias,[2] tornando-se um dos trabalhos mais populares da literatura do século XX.",
+    "preco": 159.9,
+    "estoque": 12,
+    "peso": 1000.0,
+    "genero": "Fantasia",
+    "numPaginas": 1280
+  },
+  {
+    "id": "8f61a054-9c2a-4867-85bb-54733d23351c",
+    "titulo": "IT - A Coisa ",
+    "autores": [
+      "Stephen King "
+    ],
+    "anoPublicacao": 1986,
+    "descricao": "t (em português A Coisa) é um romance de terror de 1986 do autor estadunidense Stephen King. Foi seu 22º livro e seu 17º romance escrito em seu próprio nome. A história segue as experiências de sete crianças, que são aterrorizadas por uma entidade maligna que explora os medos de suas vítimas para se disfarçar enquanto caçam suas presas. \"It\" aparece principalmente na forma do palhaço Pennywise para atrair sua presa preferida: crianças pequenas.",
+    "preco": 39.9,
+    "genero": "Terror",
+    "estoque": 10,
+    "peso": 0.0,
+    "numPaginas": 0
+  },
+  {
+    "id": "d8dad7c2-5445-4452-9869-9a8aa3a11c52",
+    "titulo": "Memórias Póstumas de Brás Cubas",
+    "autores": [
+      "Machado de Assis "
+    ],
+    "anoPublicacao": 1881,
+    "descricao": "Memórias Póstumas de Brás Cubas é um romance escrito por Machado de Assis, desenvolvido em princípio como folhetim, de março a dezembro de 1880, na Revista Brasileira, para, no ano seguinte, ser publicado como livro, pela então Tipografia Nacional como Memorias Posthumas de Braz Cubas.",
+    "preco": 41.89,
+    "estoque": 10,
+    "peso": 200.0,
+    "numPaginas": 420
+  },
+  {
+    "id": "17a78c95-5493-42c9-87a3-45db5e60cc7b",
+    "titulo": "As Crônicas de Narnia",
+    "autores": [
+      "C.S. Lewis"
+    ],
+    "anoPublicacao": 1949,
+    "descricao": "The Chronicles of Narnia é uma série de sete romances de alta fantasia, escrita pelo autor irlandês C. S. Lewis.",
+    "preco": 110.7,
+    "genero": "Fantasia",
+    "estoque": 8,
+    "peso": 800.0,
+    "numPaginas": 752
+  }
+]

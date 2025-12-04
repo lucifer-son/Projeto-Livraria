@@ -1,0 +1,165 @@
+[
+  {
+    "id": "f02b341b-5c7b-4d93-9f07-a66de254b2a9",
+    "cliente": "747d5b86-0590-425e-b0a0-289ab55ab9a0",
+    "data": "Dec 2, 2025, 12:00:00 AM",
+    "status": "PROCESSANDO",
+    "metodoPagamento": "Boleto",
+    "frete": 0.0,
+    "valorTotal": 33.0,
+    "itens": [
+      {
+        "id": "c43fcc23-3130-4c3d-ace1-42a89511b9fd",
+        "livro": {
+          "id": "e97f5313-054d-4532-a570-7b78d41d9635",
+          "titulo": "Harry Potter e a Pedra Filosofal ",
+          "autores": [
+            "J.K. Rowling"
+          ],
+          "anoPublicacao": 1997,
+          "descricao": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
+          "preco": 33.0,
+          "estoque": 12,
+          "peso": 0.0,
+          "numPaginas": 264
+        },
+        "quantidade": 1,
+        "precoUnitario": 33.0
+      }
+    ]
+  },
+  {
+    "id": "4dc4345a-15eb-4f0d-92dd-d1caaf60697b",
+    "cliente": "747d5b86-0590-425e-b0a0-289ab55ab9a0",
+    "data": "Dec 2, 2025, 12:00:00 AM",
+    "status": "PROCESSANDO",
+    "metodoPagamento": "Boleto",
+    "frete": 0.0,
+    "valorTotal": 33.0,
+    "itens": [
+      {
+        "id": "8ce6366d-2710-4f9f-a9f1-42657ed18d8b",
+        "livro": {
+          "id": "e97f5313-054d-4532-a570-7b78d41d9635",
+          "titulo": "Harry Potter e a Pedra Filosofal ",
+          "autores": [
+            "J.K. Rowling"
+          ],
+          "anoPublicacao": 1997,
+          "descricao": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
+          "preco": 33.0,
+          "estoque": 12,
+          "peso": 0.0,
+          "numPaginas": 264
+        },
+        "quantidade": 1,
+        "precoUnitario": 33.0
+      }
+    ]
+  },
+  {
+    "id": "006ac375-8172-4f9e-8683-0857267f4e9a",
+    "cliente": "747d5b86-0590-425e-b0a0-289ab55ab9a0",
+    "data": "Dec 2, 2025, 12:00:00 AM",
+    "status": "PROCESSANDO",
+    "metodoPagamento": "Boleto",
+    "frete": 0.0,
+    "valorTotal": 192.9,
+    "itens": [
+      {
+        "id": "c3462d99-52c2-4dfc-acd6-d43ffd2f98d5",
+        "livro": {
+          "id": "e97f5313-054d-4532-a570-7b78d41d9635",
+          "titulo": "Harry Potter e a Pedra Filosofal ",
+          "autores": [
+            "J.K. Rowling"
+          ],
+          "anoPublicacao": 1997,
+          "descricao": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
+          "preco": 33.0,
+          "estoque": 12,
+          "peso": 0.0,
+          "numPaginas": 264
+        },
+        "quantidade": 1,
+        "precoUnitario": 33.0
+      },
+      {
+        "id": "4cddff1d-df4e-4d06-94e9-3102c631d3b5",
+        "livro": {
+          "id": "5c47deef-aa91-465d-ade1-0785c76399a2",
+          "titulo": "Box - O Senhor dos Anéis",
+          "autores": [
+            "J.R.R. Tolkien"
+          ],
+          "anoPublicacao": 1954,
+          "descricao": "O Senhor dos Anéis (The Lord of the Rings, no original) é um livro de alta fantasia, escrito pelo escritor britânico J. R. R. Tolkien. Escrita entre 1937 e 1949, com muitas partes criadas durante a Segunda Guerra Mundial,[1] a saga é uma continuação de O Hobbit (1937). Embora Tolkien tenha planejado realizá-la em volume único, a obra foi originalmente publicada em três volumes (The Fellowship of the Ring, The Two Towers e The Return of the King) entre 1954 e 1955, com cada volume contendo dois livros cada, e foi assim, em três volumes, que se tornou popular. Desde então, a obra foi reimpressa várias vezes e traduzida para mais de 40 línguas, vendendo mais de 160 milhões de cópias,[2] tornando-se um dos trabalhos mais populares da literatura do século XX.",
+          "preco": 159.9,
+          "estoque": 12,
+          "peso": 1000.0,
+          "numPaginas": 1280
+        },
+        "quantidade": 1,
+        "precoUnitario": 159.9
+      }
+    ]
+  },
+  {
+    "id": "41ec19e9-062a-4f3a-85b6-d551c5d664f5",
+    "cliente": "747d5b86-0590-425e-b0a0-289ab55ab9a0",
+    "data": "Dec 3, 2025, 12:00:00 AM",
+    "status": "PROCESSANDO",
+    "metodoPagamento": "Boleto",
+    "frete": 0.0,
+    "valorTotal": 33.0,
+    "itens": [
+      {
+        "id": "b2d89f51-3cfe-4604-a077-20cda6102992",
+        "livro": {
+          "id": "e97f5313-054d-4532-a570-7b78d41d9635",
+          "titulo": "Harry Potter e a Pedra Filosofal ",
+          "autores": [
+            "J.K. Rowling"
+          ],
+          "anoPublicacao": 1997,
+          "descricao": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
+          "preco": 33.0,
+          "estoque": 12,
+          "peso": 0.0,
+          "numPaginas": 264
+        },
+        "quantidade": 1,
+        "precoUnitario": 33.0
+      }
+    ]
+  },
+  {
+    "id": "73c04390-e805-4f30-a502-aef8c2ecd36e",
+    "cliente": "747d5b86-0590-425e-b0a0-289ab55ab9a0",
+    "data": "Dec 3, 2025, 12:00:00 AM",
+    "status": "PROCESSANDO",
+    "metodoPagamento": "Pix",
+    "frete": 0.0,
+    "valorTotal": 33.0,
+    "itens": [
+      {
+        "id": "2f292296-1f40-46ec-9dd6-27437120e3ec",
+        "livro": {
+          "id": "e97f5313-054d-4532-a570-7b78d41d9635",
+          "titulo": "Harry Potter e a Pedra Filosofal ",
+          "autores": [
+            "J.K. Rowling"
+          ],
+          "anoPublicacao": 1997,
+          "descricao": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.",
+          "preco": 33.0,
+          "estoque": 12,
+          "peso": 0.0,
+          "numPaginas": 264
+        },
+        "quantidade": 1,
+        "precoUnitario": 33.0
+      }
+    ]
+  }
+]
