@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="LivrariaFX" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="main.Programa" />
+    <module name="livraria" />
+    <option name="VM_PARAMETERS" value="--module-path &quot;D:\Arquivos de Programa\javafx-sdk-25.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml --enable-native-access=javafx.graphics" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
