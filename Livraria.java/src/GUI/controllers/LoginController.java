@@ -21,8 +21,7 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        Image logo = new Image(getClass().getResourceAsStream("/GUI/resources/imagens/novologo.jpg"));
-        logoImageView.setImage(logo);
+        // A imagem agora é definida no FXML, então este código não é mais necessário.
     }
 
     @FXML
