@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.CarrinhoController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Meu Carrinho de Compras" textFill="#333333">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <TableView fx:id="carrinhoTable" prefHeight="350.0" prefWidth="760.0">
+        <columns>
+            <TableColumn fx:id="colTitulo" prefWidth="300.0" text="Título do Livro" />
+            <TableColumn fx:id="colQuantidade" prefWidth="100.0" text="Quantidade" />
+            <TableColumn fx:id="colPrecoUnitario" prefWidth="150.0" text="Preço Unitário" />
+            <TableColumn fx:id="colSubtotal" prefWidth="150.0" text="Subtotal" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+    <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="200.0">
+        <children>
+            <Label fx:id="totalLabel" text="Total: R$ 0.00" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </children>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="760.0" spacing="15.0">
+        <children>
+            <Button onAction="#handleRemoverItem" prefWidth="150.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" text="Remover Item" />
+            <Button onAction="#handleLimparCarrinho" prefWidth="150.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpar Carrinho" />
+            <Button onAction="#handleContinuarComprando" prefWidth="180.0" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" text="Continuar Comprando" />
+            <Button onAction="#handleFinalizarPedido" prefWidth="150.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" text="Finalizar Pedido" />
+        </children>
+    </HBox>
+</VBox>

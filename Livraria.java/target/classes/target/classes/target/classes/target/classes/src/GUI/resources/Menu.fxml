@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.MenuController">
+    <top>
+        <ToolBar>
+            <Label text="Projeto IP2 - Livraria" styleClass="title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Sair" onAction="#onLogout"/>
+        </ToolBar>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+            <Button fx:id="btnMeusLivros" text="Meus Livros" onAction="#onLivros" maxWidth="200"/>
+            <Button fx:id="btnCarrinho" text="Meu Carrinho" onAction="#onCarrinho" maxWidth="200"/>
+            <Button fx:id="btnAvaliacoes" text="Minhas Avaliações" onAction="#onAvaliacoes" maxWidth="200"/>
+
+            <Separator/>
+
+            <Button fx:id="btnGerenciarEstoque" text="Gerenciar Estoque" onAction="#onGerenciarEstoque" maxWidth="200"/>
+            <Button fx:id="btnGerenciarUsuarios" text="Gerenciar Usuários" onAction="#onGerenciarUsuarios" maxWidth="200"/>
+            <Button fx:id="btnGerenciarPedidos" text="Gerenciar Pedidos" onAction="#onGerenciarPedidos" maxWidth="200"/>
+            <Button fx:id="btnRelatorioVendas" text="Relatório de Vendas" onAction="#onRelatorioVendas" maxWidth="200"/>
+        </VBox>
+    </center>
+</BorderPane>

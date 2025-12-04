@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.ClientesController">
+    <top>
+        <ToolBar>
+            <Button text="Voltar" onAction="#goBack"/>
+            <Label text="Clientes" styleClass="title"/>
+        </ToolBar>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.5">
+            <VBox spacing="8">
+                <padding>
+                    <Insets top="8" right="8" bottom="8" left="8"/>
+                </padding>
+                <TableView fx:id="clientesTable">
+                    <columns>
+                        <TableColumn fx:id="colCliId" text="ID"/>
+                        <TableColumn fx:id="colCliNome" text="Nome"/>
+                        <TableColumn fx:id="colCliEmail" text="E-mail"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="8">
+                    <Button text="Novo" onAction="#novoCliente"/>
+                    <Button text="Editar" onAction="#editarCliente"/>
+                    <Button text="Excluir" onAction="#excluirCliente"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="8">
+                <padding>
+                    <Insets top="8" right="8" bottom="8" left="8"/>
+                </padding>
+                <Label text="Endereço"/>
+                <TextField fx:id="ruaField" promptText="Rua"/>
+                <TextField fx:id="numeroField" promptText="Número"/>
+                <TextField fx:id="cidadeField" promptText="Cidade"/>
+                <TextField fx:id="cepField" promptText="CEP"/>
+                <Button text="Salvar Endereço" onAction="#salvarEndereco"/>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

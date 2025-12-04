@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.CadastroClienteController">
+    <children>
+        <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Cadastro de Novo Cliente" styleClass="title"/>
+
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="70"/>
+                </columnConstraints>
+
+                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="nomeField" promptText="Nome Completo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="E-mail:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="emailField" promptText="email@exemplo.com" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Senha:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="senhaField" promptText="Senha" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Telefone:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="telefoneField" promptText="(XX) XXXXX-XXXX" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="CEP:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="cepField" promptText="XXXXX-XXX" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Label text="Rua:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="ruaField" promptText="Nome da Rua" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <Label text="Número:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <TextField fx:id="numeroField" promptText="Número" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                <Label text="Bairro:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                <TextField fx:id="bairroField" promptText="Nome do Bairro" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                <Label text="Cidade:" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                <TextField fx:id="cidadeField" promptText="Nome da Cidade" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+                <Label text="Estado:" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+                <TextField fx:id="estadoField" promptText="UF" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Cadastrar" onAction="#onCadastrarCliente"/>
+                <Button text="Voltar" onAction="#onVoltar"/>
+            </HBox>
+
+            <Label fx:id="messageLabel" textFill="#d00d0d"/>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.PedidoDetalhesController"
+      spacing="10" alignment="CENTER_LEFT">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="pedidoIdLabel" styleClass="title"/>
+
+    <TableView fx:id="itensTable">
+        <columns>
+            <TableColumn fx:id="colLivro" text="Livro"/>
+            <TableColumn fx:id="colQuantidade" text="Quantidade"/>
+            <TableColumn fx:id="colPrecoUnitario" text="Preço Unitário"/>
+            <TableColumn fx:id="colSubtotal" text="Subtotal"/>
+        </columns>
+    </TableView>
+
+    <Button text="Voltar" onAction="#onVoltar"/>
+</VBox>

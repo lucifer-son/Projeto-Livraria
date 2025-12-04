@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.DevolucaoController"
+      spacing="10" alignment="CENTER_LEFT">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="pedidoIdLabel" styleClass="title"/>
+
+    <ListView fx:id="itensListView"/>
+
+    <TextArea fx:id="motivoArea" promptText="Motivo da devolução"/>
+
+    <HBox spacing="10">
+        <Button text="Confirmar Devolução" onAction="#onConfirmarDevolucao"/>
+        <Button text="Cancelar" onAction="#onCancelar"/>
+    </HBox>
+</VBox>
