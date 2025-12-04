@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controladores.UsuarioController" spacing="8">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.UsuariosController" spacing="8">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>

@@ -2,9 +2,12 @@ package model;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Avaliacao {
     private String id;
+    private Livro livro;
+    private Cliente cliente;
     private int nota;
     private String comentario;
     private Date data;
@@ -18,12 +21,38 @@ public class Avaliacao {
         this.aprovado = aprovado;
     }
 
+    public Avaliacao(Livro livro, Cliente cliente, int nota, String comentario) {
+        this.id = UUID.randomUUID().toString();
+        this.livro = livro;
+        this.cliente = cliente;
+        this.nota = nota;
+        this.comentario = comentario;
+        this.data = new Date();
+        this.aprovado = true;
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public int getNota() {
@@ -56,12 +85,6 @@ public class Avaliacao {
 
     public void setAprovado(boolean aprovado) {
         this.aprovado = aprovado;
-    }
-
-    public int getRating() {
-        return 0;
-    }
-    public void setRating(int rating) {
     }
 
     @Override

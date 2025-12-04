@@ -10,6 +10,7 @@ import excecoes.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 public class Fachada {
 
@@ -19,22 +20,24 @@ public class Fachada {
     private CadastroLivro cadastroLivro;
     private CadastroPedido cadastroPedido;
     private CadastroUsuario cadastroUsuario;
-    private CadastroCarrinho cadastroCarrinho;
     private CadastroWishList cadastroWishList;
     private CadastroAvaliacao cadastroAvaliacao;
     private CadastroDevolucao cadastroDevolucao;
     private CadastroPagamento cadastroPagamento;
+    private CadastroCarrinho cadastroCarrinho;
+
+    private Usuario usuarioLogado;
 
     private Fachada() {
         this.cadastroCliente = new CadastroCliente();
         this.cadastroLivro = new CadastroLivro();
         this.cadastroPedido = new CadastroPedido();
         this.cadastroUsuario = new CadastroUsuario();
-        this.cadastroCarrinho = new CadastroCarrinho();
         this.cadastroWishList = new CadastroWishList();
         this.cadastroAvaliacao = new CadastroAvaliacao();
         this.cadastroDevolucao = new CadastroDevolucao();
         this.cadastroPagamento = new CadastroPagamento();
+        this.cadastroCarrinho = new CadastroCarrinho();
     }
 
     public static Fachada getInstance() {
@@ -43,6 +46,61 @@ public class Fachada {
         }
         return instance;
     }
+
+
+    public Usuario getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public void setUsuarioLogado(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
+    }
+
+    public void logout() {
+        this.usuarioLogado = null;
+    }
+
+
+    public boolean autenticar(String login, String senha) {
+        Usuario usuarioGenerico = cadastroUsuario.buscarPorLogin(login);
+        if (usuarioGenerico != null && usuarioGenerico.getSenha().equals(senha)) {
+            System.out.println("DEBUG: Fachada.autenticar() - Usuário genérico/admin autenticado: " + login);
+            usuarioLogado = usuarioGenerico;
+            return true;
+        }
+
+
+        Cliente cliente = cadastroCliente.buscarPorEmail(login);
+        if (cliente != null && cliente.getSenha().equals(senha)) {
+            System.out.println("DEBUG: Fachada.autenticar() - Cliente autenticado: " + login);
+            usuarioLogado = cliente;
+            return true;
+        }
+
+        System.out.println("DEBUG: Fachada.autenticar() - Falha na autenticação para: " + login);
+        return false;
+    }
+
+
+    private void verificarPermissaoAdmin() throws OperacaoNaoPermitidaExcecao {
+        if (usuarioLogado == null || usuarioLogado.getTipo() != TipoUsuario.ADMIN) {
+            throw new OperacaoNaoPermitidaExcecao("Acesso negado", "Operação de gerenciamento de livros", "Usuário não é ADMIN");
+        }
+    }
+
+    public void cadastrarLivro(Livro livro) throws EntidadeJaExistenteExcecao, OperacaoNaoPermitidaExcecao {
+        verificarPermissaoAdmin();
+        cadastroLivro.cadastrar(livro);
+    }
+    public void atualizarLivro(Livro livro) throws EntidadeNaoEncontradaExcecao, OperacaoNaoPermitidaExcecao {
+        verificarPermissaoAdmin();
+        cadastroLivro.atualizar(livro);
+    }
+    public void removerLivro(String id) throws EntidadeNaoEncontradaExcecao, OperacaoNaoPermitidaExcecao {
+        verificarPermissaoAdmin();
+        cadastroLivro.remover(id);
+    }
+
 
     public void cadastrarCliente(Cliente cliente) throws EntidadeJaExistenteExcecao {
         cadastroCliente.cadastrar(cliente);
@@ -60,15 +118,6 @@ public class Fachada {
         cadastroCliente.listar();
     }
 
-    public void cadastrarLivro(Livro livro) throws EntidadeJaExistenteExcecao {
-        cadastroLivro.cadastrar(livro);
-    }
-    public void atualizarLivro(Livro livro) throws EntidadeNaoEncontradaExcecao {
-        cadastroLivro.atualizar(livro);
-    }
-    public void removerLivro(String id) throws EntidadeNaoEncontradaExcecao {
-        cadastroLivro.remover(id);
-    }
     public Livro buscarLivroPorId(String id) {
         return cadastroLivro.buscarPorId(id);
     }
@@ -87,6 +136,9 @@ public class Fachada {
     }
     public Pedido buscarPedidoPorId(String id) {
         return cadastroPedido.buscarPorId(id);
+    }
+    public List<Pedido> buscarTodosPedidos() {
+        return cadastroPedido.buscarTodos();
     }
     public void listarPedidos() {
         cadastroPedido.listar();
@@ -110,22 +162,6 @@ public class Fachada {
     }
     public void listarUsuarios() {
         cadastroUsuario.listar();
-    }
-
-    public void cadastrarCarrinho(Carrinho carrinho) throws EntidadeJaExistenteExcecao {
-        cadastroCarrinho.cadastrar(carrinho);
-    }
-    public void atualizarCarrinho(Carrinho carrinho) throws EntidadeNaoEncontradaExcecao {
-        cadastroCarrinho.atualizar(carrinho);
-    }
-    public void removerCarrinho(String id) throws EntidadeNaoEncontradaExcecao {
-        cadastroCarrinho.remover(id);
-    }
-    public Carrinho buscarCarrinhoPorId(String id) {
-        return cadastroCarrinho.buscarPorId(id);
-    }
-    public void listarCarrinhos() {
-        cadastroCarrinho.listar();
     }
 
     public void cadastrarWishList(WishList wishList) throws EntidadeJaExistenteExcecao {
@@ -191,4 +227,25 @@ public class Fachada {
     public void listarPagamentos() {
         cadastroPagamento.listar();
     }
+
+    public void adicionarItemAoCarrinho(Livro livro, int quantidade) {
+        cadastroCarrinho.adicionarItem(livro, quantidade);
+    }
+
+    public void removerItemDoCarrinho(Livro livro) {
+        cadastroCarrinho.removerItem(livro);
+    }
+
+    public Map<Livro, Integer> getItensDoCarrinho() {
+        return cadastroCarrinho.getItens();
+    }
+
+    public void limparCarrinho() {
+        cadastroCarrinho.limparCarrinho();
+    }
+
+    public double getValorTotalCarrinho() {
+        return cadastroCarrinho.getValorTotal();
+    }
+
 }

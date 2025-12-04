@@ -4,9 +4,11 @@ import excecoes.OperacaoNaoPermitidaExcecao;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Devolucao {
     private String id;
+    private Pedido pedido;
     private String motivo;
     private Date dataSolicitacao;
     private String status;
@@ -18,12 +20,36 @@ public class Devolucao {
         this.status = status;
     }
 
+    public Devolucao(Pedido pedido, String motivo) {
+        this.id = UUID.randomUUID().toString();
+        this.pedido = pedido;
+        this.motivo = motivo;
+        this.dataSolicitacao = new Date();
+        this.status = "EM_ANALISE";
+    }
+
+    public Devolucao(String id, Pedido pedido, String motivo, Date dataSolicitacao, String status) {
+        this.id = id;
+        this.pedido = pedido;
+        this.motivo = motivo;
+        this.dataSolicitacao = dataSolicitacao;
+        this.status = status;
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public String getMotivo() {

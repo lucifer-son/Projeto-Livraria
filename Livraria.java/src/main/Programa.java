@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import model.*;
 
@@ -16,56 +17,56 @@ public class Programa {
         
         Fachada fachada = Fachada.getInstance();
 
+        try {
+            Usuario adminUser = new Usuario("Rafael Gamelo", "rafael.gamelo@ufrpe.br", "admin123");
+            fachada.cadastrarUsuario(adminUser);
+            System.out.println("OK: Usuário admin 'rafael.gamelo@ufrpe.br' cadastrado com sucesso.");
+        } catch (EntidadeJaExistenteExcecao e) {
+            System.out.println("INFO: Usuário admin 'rafael.gamelo@ufrpe.br' já existe.");
+        } catch (EmailInvalidoExcecao e) {
+            System.err.println("ERRO: E-mail do admin inválido durante inicialização: " + e.getMessage());
+        }
+
         System.out.println("\n--- Testes de Sucesso ---");
 
         try {
-            // --- Cadastro de Livro ---
             Livro novoLivro = new Livro("LIV001", "O Código Limpo", List.of("Robert C. Martin"), "Alta Books", "978-85-7608-267-2", 2009, "Um clássico.", 89.90, 50, 0.8, "Programação", "/img/clean_code.jpg", 464);
             fachada.cadastrarLivro(novoLivro);
             System.out.println("OK: Livro cadastrado com sucesso.");
 
-            // --- Cadastro de Cliente ---
             Cliente novoCliente = new Cliente("CLI001", "Ana Pereira", "ana.p@email.com", "senha123", new ArrayList<>(), new ArrayList<>(), new Date());
             fachada.cadastrarCliente(novoCliente);
             System.out.println("OK: Cliente cadastrado com sucesso.");
 
-            // --- Cadastro de Pedido ---
-            Endereco enderecoParaPedido = new Endereco("1", "Rua Teste", "123", "", "Cidade", "UF", "12345-678", "Brasil", "");
+            Endereco enderecoParaPedido = new Endereco("Rua Teste", "123", "Cidade", "12345-678");
+            enderecoParaPedido.setComplemento("");
+            enderecoParaPedido.setEstado("UF");
+            enderecoParaPedido.setPais("Brasil");
+            novoCliente.getEnderecos().add(enderecoParaPedido);
             Pedido novoPedido = new Pedido.Builder("PED001", novoCliente.getId(), new Date()).withStatus(Pedido.StatusPedido.PROCESSANDO).withEndereco(enderecoParaPedido).build();
             fachada.cadastrarPedido(novoPedido);
             System.out.println("OK: Pedido cadastrado com sucesso.");
 
-            // --- Cadastro de Usuario ---
-            Usuario novoUsuario = new Usuario("USR001", "admin", "admin123");
+            Usuario novoUsuario = new Usuario("USR001", "Admin User", "admin@email.com", "admin123");
             fachada.cadastrarUsuario(novoUsuario);
             System.out.println("OK: Usuário cadastrado com sucesso.");
 
-            // --- Cadastro de Carrinho ---
-            Carrinho novoCarrinho = new Carrinho("CAR001", new ArrayList<>());
-            fachada.cadastrarCarrinho(novoCarrinho);
-            System.out.println("OK: Carrinho cadastrado com sucesso.");
-
-            // --- Cadastro de WishList ---
             WishList novaWishList = new WishList("WSH001");
             fachada.cadastrarWishList(novaWishList);
             System.out.println("OK: WishList cadastrada com sucesso.");
 
-            // --- Cadastro de Avaliacao ---
             Avaliacao novaAvaliacao = new Avaliacao("AV001", 5, "Excelente!", new Date(), true);
             fachada.cadastrarAvaliacao(novaAvaliacao);
             System.out.println("OK: Avaliação cadastrada com sucesso.");
 
-            // --- Cadastro de Devolucao ---
             Devolucao novaDevolucao = new Devolucao("DEV001", "Produto errado", new Date(), "EM_ANALISE");
             fachada.cadastrarDevolucao(novaDevolucao);
             System.out.println("OK: Devolução cadastrada com sucesso.");
 
-            // --- Cadastro de Pagamento ---
             Pagamento novoPagamento = new Pagamento("PAG001", "PED001", "Cartão", "****1234", "APROVADO", new Date(), 150.0);
             fachada.cadastrarPagamento(novoPagamento);
             System.out.println("OK: Pagamento cadastrado com sucesso.");
 
-            // --- Testes de Listagem ---
             System.out.println("\n--- Listagem de Entidades ---");
             System.out.println("Clientes cadastrados:");
             fachada.listarClientes();
@@ -75,8 +76,6 @@ public class Programa {
             fachada.listarPedidos();
             System.out.println("\nUsuários cadastrados:");
             fachada.listarUsuarios();
-            System.out.println("\nCarrinhos cadastrados:");
-            fachada.listarCarrinhos();
             System.out.println("\nWishLists cadastradas:");
             fachada.listarWishLists();
             System.out.println("\nAvaliações cadastradas:");
@@ -86,10 +85,8 @@ public class Programa {
             System.out.println("\nPagamentos cadastrados:");
             fachada.listarPagamentos();
 
-            // --- Testes de Busca e Atualização ---
             System.out.println("\n--- Testes de Busca e Atualização ---");
 
-            // --- Cliente ---
             try {
                 System.out.println("Buscando cliente CLI001...");
                 Cliente clienteEncontrado = fachada.buscarClientePorId("CLI001");
@@ -106,7 +103,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Livro ---
             try {
                 System.out.println("\nBuscando livro LIV001...");
                 Livro livroEncontrado = fachada.buscarLivroPorId("LIV001");
@@ -123,7 +119,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Pedido ---
             try {
                 System.out.println("\nBuscando pedido PED001...");
                 Pedido pedidoEncontrado = fachada.buscarPedidoPorId("PED001");
@@ -138,11 +133,10 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Usuario ---
             try {
                 System.out.println("\nBuscando usuário USR001...");
                 Usuario usuarioEncontrado = fachada.buscarUsuarioPorId("USR001");
-                System.out.println("OK: Usuário encontrado: " + usuarioEncontrado.getLogin());
+                System.out.println("OK: Usuário encontrado: " + usuarioEncontrado.getEmail());
                 usuarioEncontrado.setSenha("novaSenha123");
                 fachada.atualizarUsuario(usuarioEncontrado);
                 System.out.println("OK: Senha do usuário atualizada (verificação visual).");
@@ -151,19 +145,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Carrinho ---
-            try {
-                System.out.println("\nBuscando carrinho CAR001...");
-                Carrinho c = fachada.buscarCarrinhoPorId("CAR001");
-                System.out.println("OK: Carrinho encontrado: " + c.getId());
-                fachada.atualizarCarrinho(c);
-                System.out.println("OK: Chamada de atualização do carrinho executada.");
-            } catch (Exception e) {
-                System.out.println("ERRO no teste de busca/atualização de Carrinho: " + e.getMessage());
-                houveErros = true;
-            }
-
-            // --- WishList ---
             try {
                 System.out.println("\nBuscando WishList WSH001...");
                 WishList w = fachada.buscarWishListPorId("WSH001");
@@ -175,7 +156,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Avaliacao ---
             try {
                 System.out.println("\nBuscando Avaliacao AV001...");
                 Avaliacao a = fachada.buscarAvaliacaoPorId("AV001");
@@ -190,7 +170,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Devolucao ---
             try {
                 System.out.println("\nBuscando Devolucao DEV001...");
                 Devolucao d = fachada.buscarDevolucaoPorId("DEV001");
@@ -205,7 +184,6 @@ public class Programa {
                 houveErros = true;
             }
 
-            // --- Pagamento ---
             try {
                 System.out.println("\nBuscando Pagamento PAG001...");
                 Pagamento p = fachada.buscarPagamentoPorId("PAG001");
@@ -221,7 +199,8 @@ public class Programa {
             }
 
         } catch (Exception e) {
-            System.out.println("ERRO INESPERADO NO CAMINHO FELIZ: " + e.getMessage()); 
+            System.out.println("ERRO INESPERADO NO CAMINHO FELIZ: " + e.getMessage());
+            e.printStackTrace();
             houveErros = true;
         }
 
@@ -237,6 +216,7 @@ public class Programa {
         } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de livro duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
+
             Cliente clienteDuplicado = new Cliente("CLI001", "Ana P. Duplicada", "ana.p@email.com", "senha456", new ArrayList<>(), new ArrayList<>(), new Date());
             fachada.cadastrarCliente(clienteDuplicado);
             System.out.println("FALHA: Cliente duplicado cadastrado (NÃO DEVERIA ACONTECER).");
@@ -253,21 +233,14 @@ public class Programa {
         } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de pedido duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
-            Usuario usuarioDuplicado = new Usuario("USR001", "admin_dup", "outrasenha");
+
+            Usuario usuarioDuplicado = new Usuario("USR001", "Admin User Duplicado", "admin_dup@email.com", "outrasenha");
             fachada.cadastrarUsuario(usuarioDuplicado);
             System.out.println("FALHA: Usuário duplicado cadastrado (NÃO DEVERIA ACONTECER).");
             houveErros = true;
         } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar usuário duplicado: " + e.getMessage());
         } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de usuário duplicado: " + e.getMessage()); houveErros = true; }
 
-        
-        try {
-            Carrinho carrinhoDuplicado = new Carrinho("CAR001", new ArrayList<>());
-            fachada.cadastrarCarrinho(carrinhoDuplicado);
-            System.out.println("FALHA: Carrinho duplicado cadastrado (NÃO DEVERIA ACONTECER).");
-            houveErros = true;
-        } catch (EntidadeJaExistenteExcecao e) { System.out.println("OK: Erro esperado ao cadastrar carrinho duplicado: " + e.getMessage());
-        } catch (Exception e) { System.out.println("ERRO INESPERADO no teste de carrinho duplicado: " + e.getMessage()); houveErros = true; }
         
         try {
             WishList wishListDuplicada = new WishList("WSH001");
@@ -304,7 +277,7 @@ public class Programa {
         try {
             Livro livroEstoque = new Livro("LIV-ESTOQUE", "Livro de Teste", List.of("Autor"), "Editora", "ISBN", 2023, "Desc", 50.0, 10, 0.5, "Cat", "img", 100);
             livroEstoque.diminuirEstoque(5);
-            livroEstoque.diminuirEstoque(10); 
+            livroEstoque.diminuirEstoque(10);
             System.out.println("FALHA: Estoque diminuído além do limite (NÃO DEVERIA ACONTECER).");
             houveErros = true;
         } catch (EstoqueInsuficienteExcecao e) {
@@ -349,11 +322,6 @@ public class Programa {
             if (fachada.buscarWishListPorId("WSH001") != null) throw new Exception("WishList não foi removida.");
             System.out.println("OK: WishList removida.");
 
-            System.out.println("Removendo Carrinho CAR001...");
-            fachada.removerCarrinho("CAR001");
-            if (fachada.buscarCarrinhoPorId("CAR001") != null) throw new Exception("Carrinho não foi removido.");
-            System.out.println("OK: Carrinho removido.");
-
             System.out.println("Removendo Pedido PED001...");
             fachada.removerPedido("PED001");
             if (fachada.buscarPedidoPorId("PED001") != null) throw new Exception("Pedido não foi removido.");
@@ -374,79 +342,11 @@ public class Programa {
             if (fachada.buscarLivroPorId("LIV001") != null) throw new Exception("Livro não foi removido.");
             System.out.println("OK: Livro removido.");
 
-            System.out.println("\n=== TESTE DO VALOR TOTAL DO CARRINHO ===");
-
-            System.out.println("\n=== TESTE DO VALOR TOTAL DO CARRINHO (VERSÃO ROBUSTA) ===");
-
-            try {
-                Livro l1 = new Livro(
-                        "TST1",
-                        "Java Básico",
-                        java.util.Arrays.asList("Autor X"),
-                        "Editora A",
-                        "111111",
-                        2023,
-                        "Livro introdutório",
-                        50.0,      // preco
-                        10,        // estoque
-                        0.5,
-                        "Programação",
-                        "img",
-                        200
-                );
-
-                Livro l2 = new Livro(
-                        "TST2",
-                        "Python Avançado",
-                        java.util.Arrays.asList("Autor Y"),
-                        "Editora B",
-                        "222222",
-                        2024,
-                        "Livro avançado",
-                        80.0,      // preco
-                        5,         // estoque
-                        0.7,
-                        "Programação",
-                        "img",
-                        350
-                );
-
-                ItemPedido item1 = new ItemPedido("1", "Livro A", 2, 50.0);
-                ItemPedido item2 = new ItemPedido("2", "Livro B", 1, 80.0);
-
-
-                Carrinho testeCarrinho = new Carrinho("TEST-CAR", java.util.Arrays.asList(item1, item2));
-
-                double valorCalculado = testeCarrinho.getValorTotal();
-                double valorEsperado = 2 * l1.getPreco() + 1 * l2.getPreco();
-
-                System.out.println("Valor esperado:  R$ " + valorEsperado);
-                System.out.println("Valor calculado: R$ " + valorCalculado);
-
-                if (Double.compare(valorEsperado, valorCalculado) == 0) {
-                    System.out.println("✔ TESTE OK: Valor total está correto!");
-                } else {
-                    System.out.println("❌ ERRO: Valor total incorreto!");
-                }
-
-            } catch (excecoes.PrecoInvalidoExcecao | excecoes.EstoqueInvalidoExcecao e) {
-                System.err.println("ERRO: falha ao criar Livro de teste: " + e.getMessage());
-                e.printStackTrace();
-
-
-
-        } catch (Throwable t) {
-                System.err.println("ERRO INESPERADO no teste do carrinho: " + t.getMessage());
-                t.printStackTrace();
-            }
-
-
         } catch (Exception e) {
             System.out.println("ERRO durante a fase de remoção: " + e.getMessage());
             houveErros = true;
         }
 
-        // --- Mensagem Final ---
         if (!houveErros) {
             System.out.println("\nTodos os testes foram concluídos com sucesso!");
         } else {

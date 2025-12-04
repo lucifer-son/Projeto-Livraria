@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controladores.ClientesController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.ClientesController">
     <top>
         <ToolBar>
             <Button text="Voltar" onAction="#goBack"/>

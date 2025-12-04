@@ -1,7 +1,5 @@
 package model;
 
-import excecoes.StatusPedidoInvalidoExcecao;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -18,7 +16,8 @@ public class Pedido {
     private List<ItemPedido> itens;
 
     public enum StatusPedido {
-        PENDENTE,
+        CARRINHO_DE_COMPRAS,
+        CONCLUIDO,
         PROCESSANDO,
         ENVIADO,
         ENTREGUE,
@@ -53,11 +52,14 @@ public class Pedido {
         return status;
     }
 
-    public void setStatus(StatusPedido novoStatus) throws StatusPedidoInvalidoExcecao {
-        if (this.status == StatusPedido.ENTREGUE || this.status == StatusPedido.CANCELADO) {
-            throw new StatusPedidoInvalidoExcecao(this.id, this.status, novoStatus);
-        }
+    public void setStatus(StatusPedido novoStatus) {
         this.status = novoStatus;
+    }
+
+    public void verificarStatusPedido() {
+        if (this.status == StatusPedido.CARRINHO_DE_COMPRAS) {
+            this.status = StatusPedido.CONCLUIDO;
+        }
     }
 
     public Endereco getEndereco() {
@@ -119,7 +121,7 @@ public class Pedido {
             this.id = id;
             this.cliente = cliente;
             this.data = data;
-            this.status = StatusPedido.PENDENTE;
+            this.status = StatusPedido.CARRINHO_DE_COMPRAS;
         }
 
         public Builder withStatus(StatusPedido status) {

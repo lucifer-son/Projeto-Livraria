@@ -3,31 +3,27 @@ package repositorio;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import excecoes.EntidadeNaoEncontradaExcecao;
 import model.Carrinho;
+import model.Livro;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 public class CarrinhoRepositorioArquivojson {
 
     private static CarrinhoRepositorioArquivojson instance;
-
-    private List<Carrinho> carrinhos;
     private final File arquivo;
     private final Gson gson;
 
     private CarrinhoRepositorioArquivojson() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
-        this.arquivo = new File("dados/carrinhos.json");
-
+        this.arquivo = new File("dados/carrinho.json");
         garantirPasta();
-        this.carrinhos = carregarDoArquivo();
+        carregar();
     }
 
     public static CarrinhoRepositorioArquivojson getInstance() {
@@ -40,69 +36,37 @@ public class CarrinhoRepositorioArquivojson {
     private void garantirPasta() {
         File pasta = arquivo.getParentFile();
         if (!pasta.exists()) {
-            pasta.mkdirs(); 
+            pasta.mkdirs();
         }
     }
 
-    private List<Carrinho> carregarDoArquivo() {
+    private void carregar() {
         if (!arquivo.exists()) {
-            return new ArrayList<>();
+            return;
         }
 
         try (FileReader reader = new FileReader(arquivo)) {
-            Type listaTipo = new TypeToken<List<Carrinho>>() {}.getType();
-            List<Carrinho> lista = gson.fromJson(reader, listaTipo);
-            return lista != null ? lista : new ArrayList<>();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
 
-    private void salvarNoArquivo() {
-        try (FileWriter writer = new FileWriter(arquivo)) {
-            gson.toJson(carrinhos, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+            Type mapType = new TypeToken<Map<Livro, Integer>>() {}.getType();
+            Map<Livro, Integer> itensDoArquivo = gson.fromJson(reader, mapType);
 
-
-
-    public void inserir(Carrinho carrinho) {
-        carrinhos.add(carrinho);
-        salvarNoArquivo();
-    }
-
-    public void atualizar(Carrinho carrinho) throws EntidadeNaoEncontradaExcecao {
-        for (int i = 0; i < carrinhos.size(); i++) {
-            if (carrinhos.get(i).getId().equals(carrinho.getId())) {
-                carrinhos.set(i, carrinho);
-                salvarNoArquivo();
-                return;
+            if (itensDoArquivo != null) {
+                Carrinho carrinho = Carrinho.getInstance();
+                carrinho.limparCarrinho();
+                for (Map.Entry<Livro, Integer> entry : itensDoArquivo.entrySet()) {
+                    carrinho.adicionarItem(entry.getKey(), entry.getValue());
+                }
             }
+        } catch (IOException e) {
+            System.err.println("Erro ao carregar o arquivo do carrinho: " + e.getMessage());
         }
-        throw new EntidadeNaoEncontradaExcecao(carrinho.getId(), "Carrinho não encontrado para atualização.");
     }
 
-    public Carrinho buscarPorId(String id) {
-        return carrinhos.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst()
-                .orElse(null);
-    }
-
-    public List<Carrinho> buscarTodos() {
-        return new ArrayList<>(carrinhos);
-    }
-
-    public void deletarPorId(String id) throws EntidadeNaoEncontradaExcecao {
-        boolean removido = carrinhos.removeIf(c -> c.getId().equals(id));
-
-        if (!removido) {
-            throw new EntidadeNaoEncontradaExcecao(id, "Carrinho não encontrado para deleção.");
+    public void salvar(Carrinho carrinho) {
+        try (FileWriter writer = new FileWriter(arquivo)) {
+            gson.toJson(carrinho.getItens(), writer);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar o arquivo do carrinho: " + e.getMessage());
         }
-
-        salvarNoArquivo();
     }
 }

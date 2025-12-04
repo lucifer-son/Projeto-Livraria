@@ -4,8 +4,10 @@ import excecoes.EstoqueInvalidoExcecao;
 import excecoes.EstoqueInsuficienteExcecao;
 import excecoes.PrecoInvalidoExcecao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Livro {
     private String id;
@@ -24,6 +26,16 @@ public class Livro {
     private List<Avaliacao> avaliacoes;
 
     public Livro() {}
+
+    public Livro(String titulo, String autor, double preco, int estoque, String detalhes) {
+        this.id = UUID.randomUUID().toString();
+        this.titulo = titulo;
+        this.autores = new ArrayList<>();
+        this.autores.add(autor);
+        this.preco = preco;
+        this.estoque = estoque;
+        this.descricao = detalhes;
+    }
 
     public Livro(String id, String titulo, List<String> autores, String editora, String isbn, int anoPublicacao, String descricao, double preco, int estoque, double peso, String categoria, String imagem, int numPaginas) throws EstoqueInvalidoExcecao, PrecoInvalidoExcecao {
         if (preco <= 0) {
@@ -68,6 +80,24 @@ public class Livro {
         this.autores = autores;
     }
 
+    public String getAutor() {
+        if (autores != null && !autores.isEmpty()) {
+            return autores.get(0);
+        }
+        return "";
+    }
+
+    public void setAutor(String autor) {
+        if (autores == null) {
+            autores = new ArrayList<>();
+        }
+        if (!autores.isEmpty()) {
+            autores.set(0, autor);
+        } else {
+            autores.add(autor);
+        }
+    }
+
     public String getEditora() {
         return editora;
     }
@@ -98,6 +128,14 @@ public class Livro {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getDetalhes() {
+        return getDescricao();
+    }
+
+    public void setDetalhes(String detalhes) {
+        setDescricao(detalhes);
     }
 
     public double getPreco() {

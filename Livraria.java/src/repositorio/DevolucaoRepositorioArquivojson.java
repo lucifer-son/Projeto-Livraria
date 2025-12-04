@@ -56,7 +56,7 @@ public class DevolucaoRepositorioArquivojson {
         try {
             if (!arquivo.exists()) {
                 devolucoes = new ArrayList<>();
-                salvarArquivo(); // cria arquivo inicial
+                salvarArquivo();
                 return;
             }
 
@@ -132,4 +132,3 @@ public class DevolucaoRepositorioArquivojson {
         salvarArquivo();
     }
 }
-

@@ -3,69 +3,38 @@ package model;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 import excecoes.EmailInvalidoExcecao;
 import java.util.ArrayList;
 
 
-public class Cliente {
-    private String id;
-    private String nome;
-    private String email;
-    private String senha;
+public class Cliente extends Usuario {
     private List<String> telefones;
     private List<Endereco> enderecos;
     private Date dataRegistro;
     private WishList wishlist;
-    private Carrinho carrinho;
     private List<Pedido> historicoPedidos;
 
-    public Cliente(String id, String nome, String email, String senha, List<String> telefones, List<Endereco> enderecos, Date dataRegistro) throws EmailInvalidoExcecao {
-     
-        if (email == null || !email.contains("@") || !email.contains(".")) {
-            throw new EmailInvalidoExcecao("Formato de e-mail inválido: " + email);
-        }
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.telefones = telefones;
-        this.enderecos = enderecos;
-        this.dataRegistro = dataRegistro;
-        this.wishlist = new WishList(id + "_wishlist"); 
+
+    public Cliente(String nome, String email, String senha) throws EmailInvalidoExcecao {
+        super(nome, email, senha);
+        this.telefones = new ArrayList<>();
+        this.enderecos = new ArrayList<>();
+        this.dataRegistro = new Date();
+        this.wishlist = new WishList(this.getId() + "_wishlist");
         this.historicoPedidos = new ArrayList<>();
     }
 
-    public String getId() {
-        return id;
+
+    public Cliente(String id, String nome, String email, String senha, List<String> telefones, List<Endereco> enderecos, Date dataRegistro) throws EmailInvalidoExcecao {
+        super(id, nome, email, senha);
+        this.telefones = telefones;
+        this.enderecos = enderecos;
+        this.dataRegistro = dataRegistro;
+        this.wishlist = new WishList(id + "_wishlist");
+        this.historicoPedidos = new ArrayList<>();
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
     public List<String> getTelefones() {
         return telefones;
@@ -81,6 +50,24 @@ public class Cliente {
 
     public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
+    }
+
+    public Endereco getEndereco() {
+        if (enderecos != null && !enderecos.isEmpty()) {
+            return enderecos.get(0);
+        }
+        return null;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        if (enderecos == null) {
+            enderecos = new ArrayList<>();
+        }
+        if (!enderecos.isEmpty()) {
+            enderecos.set(0, endereco);
+        } else {
+            enderecos.add(endereco);
+        }
     }
 
     public Date getDataRegistro() {
@@ -99,14 +86,6 @@ public class Cliente {
         this.wishlist = wishlist;
     }
 
-    public Carrinho getCarrinho() {
-        return carrinho;
-    }
-
-    public void setCarrinho(Carrinho carrinho) {
-        this.carrinho = carrinho;
-    }
-
     public List<Pedido> getHistoricoPedidos() {
         return historicoPedidos;
     }
@@ -118,9 +97,10 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
+                "id='" + getId() + '\'' +
+                ", nome='" + getNome() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", tipo='" + getTipo() + '\'' +
                 '}';
     }
 
@@ -128,12 +108,13 @@ public class Cliente {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id);
+        return Objects.equals(getId(), cliente.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(super.hashCode(), telefones, enderecos, dataRegistro, wishlist, historicoPedidos);
     }
 }

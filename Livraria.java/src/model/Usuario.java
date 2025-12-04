@@ -1,40 +1,72 @@
 package model;
 
-import java.util.HashSet;
+import excecoes.EmailInvalidoExcecao;
+
 import java.util.Objects;
-import java.util.Set;
+import java.util.UUID;
 
 public class Usuario {
-    private String id; 
-    private String login;
+    private String id;
+    private String nome;
+    private String email;
     private String senha;
-    private Set<String> roles;
+    private TipoUsuario tipo;
 
     public Usuario() {
-        this.roles = new HashSet<>();
+
     }
 
-    public Usuario(String id, String login, String senha) { 
+
+    public Usuario(String id, String nome, String email, String senha) {
         this.id = id;
-        this.login = login;
+        this.nome = nome;
+        this.email = email;
         this.senha = senha;
-        this.roles = new HashSet<>();
+        this.tipo = determineTipoUsuario(email);
     }
 
-    public String getId() { 
+
+    public Usuario(String nome, String email, String senha) throws EmailInvalidoExcecao {
+        if (email == null || !email.contains("@") || !email.contains(".")) {
+            throw new EmailInvalidoExcecao("Formato de e-mail inválido: " + email);
+        }
+        this.id = UUID.randomUUID().toString();
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.tipo = determineTipoUsuario(email);
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(String id) { 
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getNome() {
+        return nome;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    
+    public String getLogin() {
+        return email;
+    }
+
+    public void setEmail(String email) throws EmailInvalidoExcecao {
+        if (email == null || !email.contains("@") || !email.contains(".")) {
+            throw new EmailInvalidoExcecao("Formato de e-mail inválido: " + email);
+        }
+        this.email = email;
+        this.tipo = determineTipoUsuario(email);
     }
 
     public String getSenha() {
@@ -45,25 +77,30 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Set<String> getRoles() {
-        return roles;
+    public TipoUsuario getTipo() {
+        return tipo;
     }
 
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
+
+    public void setTipo(TipoUsuario tipo) {
+        this.tipo = tipo; 
     }
 
-    public boolean hasRole(String role) {
-        if (roles == null) return false;
-        return roles.contains(role);
+
+    private TipoUsuario determineTipoUsuario(String email) {
+        if (email != null && email.toLowerCase().endsWith("@ufrpe.br")) {
+            return TipoUsuario.ADMIN;
+        }
+        return TipoUsuario.CLIENTE;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "id='" + id + '\'' + 
-                ", login='" + login + '\'' +
-                ", roles=" + roles +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", tipo=" + tipo +
                 '}';
     }
 
@@ -72,7 +109,7 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id); 
+        return Objects.equals(id, usuario.id);
     }
 
     @Override

@@ -3,24 +3,35 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controladores.LivrosController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="GUI.controllers.LivrosController">
     <top>
         <ToolBar>
             <Button text="Voltar" onAction="#goBack"/>
+            <Button fx:id="btnMeuCarrinho" text="Meu Carrinho" onAction="#handleMeuCarrinho"/> 
             <Label text="Livros" styleClass="title"/>
         </ToolBar>
     </top>
     <center>
         <SplitPane dividerPositions="0.6">
-            <TableView fx:id="livrosTable">
-                <columns>
-                    <TableColumn fx:id="colId" text="ID"/>
-                    <TableColumn fx:id="colTitulo" text="Título"/>
-                    <TableColumn fx:id="colAutor" text="Autor"/>
-                    <TableColumn fx:id="colPreco" text="Preço"/>
-                    <TableColumn fx:id="colEstoque" text="Estoque"/>
-                </columns>
-            </TableView>
+            <VBox spacing="8">
+                <padding>
+                    <Insets top="8" right="8" bottom="8" left="8"/>
+                </padding>
+                <TableView fx:id="livrosTable">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID"/>
+                        <TableColumn fx:id="colTitulo" text="Título"/>
+                        <TableColumn fx:id="colAutor" text="Autor"/>
+                        <TableColumn fx:id="colPreco" text="Preço"/>
+                        <TableColumn fx:id="colEstoque" text="Estoque"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="8">
+                    <Button fx:id="btnNovoLivro" text="Novo" onAction="#novoLivro"/>
+                    <Button fx:id="btnEditarLivro" text="Editar" onAction="#editarLivro"/>
+                    <Button fx:id="btnExcluirLivro" text="Excluir" onAction="#excluirLivro"/>
+                </HBox>
+            </VBox>
             <VBox spacing="8">
                 <padding>
                     <Insets top="10" right="10" bottom="10" left="10"/>

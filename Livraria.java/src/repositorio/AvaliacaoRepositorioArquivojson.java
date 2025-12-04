@@ -56,7 +56,7 @@ public class AvaliacaoRepositorioArquivojson {
         try {
             if (!arquivo.exists()) {
                 avaliacoes = new ArrayList<>();
-                salvarArquivo(); // cria o arquivo vazio
+                salvarArquivo();
                 return;
             }
 
@@ -72,7 +72,7 @@ public class AvaliacaoRepositorioArquivojson {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao carregar o arquivo de avaliações: " + e.getMessage());
             avaliacoes = new ArrayList<>();
         }
     }
@@ -82,7 +82,7 @@ public class AvaliacaoRepositorioArquivojson {
         try (FileWriter writer = new FileWriter(arquivo)) {
             gson.toJson(avaliacoes, writer);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao salvar o arquivo de avaliações: " + e.getMessage());
         }
     }
 

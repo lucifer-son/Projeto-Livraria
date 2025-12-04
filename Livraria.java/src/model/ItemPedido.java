@@ -1,26 +1,27 @@
 package model;
 
 import java.util.Objects;
+import java.util.UUID;
 import excecoes.QuantidadeInvalidaExcecao;
 import excecoes.PrecoInvalidoExcecao;
 
 public class ItemPedido {
-    private String id; 
-    private String livro; 
+    private String id;
+    private Livro livro;
     private int quantidade;
     private double precoUnitario;
 
-    public ItemPedido(String id, String livro, int quantidade, double precoUnitario) throws QuantidadeInvalidaExcecao, PrecoInvalidoExcecao {
+    public ItemPedido(Livro livro, int quantidade) throws QuantidadeInvalidaExcecao, PrecoInvalidoExcecao {
         if (quantidade <= 0) {
             throw new QuantidadeInvalidaExcecao("A quantidade do item do pedido deve ser maior que zero.");
         }
-        if (precoUnitario <= 0) {
+        if (livro.getPreco() <= 0) {
             throw new PrecoInvalidoExcecao("O preço unitário do item do pedido deve ser maior que zero.");
         }
-        this.id = id;
+        this.id = UUID.randomUUID().toString();
         this.livro = livro;
         this.quantidade = quantidade;
-        this.precoUnitario = precoUnitario;
+        this.precoUnitario = livro.getPreco();
     }
 
     public double getSubtotal() {
@@ -35,11 +36,11 @@ public class ItemPedido {
         this.id = id;
     }
 
-    public String getLivro() {
+    public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(String livro) {
+    public void setLivro(Livro livro) {
         this.livro = livro;
     }
 
@@ -66,7 +67,7 @@ public class ItemPedido {
     public String toString() {
         return "ItemPedido{" +
                 "id='" + id + '\'' +
-                ", livro='" + livro + '\'' +
+                ", livro='" + livro.getTitulo() + '\'' +
                 ", quantidade=" + quantidade +
                 ", precoUnitario=" + precoUnitario +
                 '}';
@@ -85,4 +86,3 @@ public class ItemPedido {
         return Objects.hash(id);
     }
 }
-

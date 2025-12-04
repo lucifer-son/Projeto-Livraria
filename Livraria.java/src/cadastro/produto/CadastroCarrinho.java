@@ -1,54 +1,39 @@
 package cadastro.produto;
 
 import model.Carrinho;
+import model.Livro;
 import repositorio.CarrinhoRepositorioArquivojson;
-import excecoes.EntidadeJaExistenteExcecao;
-import excecoes.EntidadeNaoEncontradaExcecao;
 
-import java.util.List;
+import java.util.Map;
 
 public class CadastroCarrinho {
 
-    private CarrinhoRepositorioArquivojson repositorio;
+    private final CarrinhoRepositorioArquivojson repositorio;
 
     public CadastroCarrinho() {
         this.repositorio = CarrinhoRepositorioArquivojson.getInstance();
     }
 
-    public void cadastrar(Carrinho carrinho) throws EntidadeJaExistenteExcecao {
-        if (repositorio.buscarPorId(carrinho.getId()) != null) {
-            throw new EntidadeJaExistenteExcecao(carrinho.getId(), "Já existe um carrinho com o ID " + carrinho.getId());
-        }
-        repositorio.inserir(carrinho);
+    public void adicionarItem(Livro livro, int quantidade) {
+        Carrinho.getInstance().adicionarItem(livro, quantidade);
+        repositorio.salvar(Carrinho.getInstance());
     }
 
-    public void atualizar(Carrinho carrinho) throws EntidadeNaoEncontradaExcecao {
-        if (repositorio.buscarPorId(carrinho.getId()) == null) {
-            throw new EntidadeNaoEncontradaExcecao(carrinho.getId(), "Carrinho não encontrado para atualização.");
-        }
-        repositorio.atualizar(carrinho);
+    public void removerItem(Livro livro) {
+        Carrinho.getInstance().removerItem(livro);
+        repositorio.salvar(Carrinho.getInstance());
     }
 
-    public void remover(String id) throws EntidadeNaoEncontradaExcecao {
-        if (repositorio.buscarPorId(id) == null) {
-            throw new EntidadeNaoEncontradaExcecao(id, "Carrinho não encontrado para remoção.");
-        }
-        repositorio.deletarPorId(id);
+    public Map<Livro, Integer> getItens() {
+        return Carrinho.getInstance().getItens();
     }
 
-    public Carrinho buscarPorId(String id) {
-        return repositorio.buscarPorId(id);
+    public void limparCarrinho() {
+        Carrinho.getInstance().limparCarrinho();
+        repositorio.salvar(Carrinho.getInstance());
     }
 
-    public List<Carrinho> buscarTodos() {
-        return repositorio.buscarTodos();
-    }
-
-    public void listar() {
-        for (Carrinho carrinho : repositorio.buscarTodos()) {
-            System.out.println(carrinho);
-        }
+    public double getValorTotal() {
+        return Carrinho.getInstance().getValorTotal();
     }
 }
-
-

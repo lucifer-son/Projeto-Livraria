@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Endereco {
     private String id;
@@ -14,6 +15,18 @@ public class Endereco {
     private String enderecoEntrega;
 
     public Endereco() {}
+
+    public Endereco(String rua, String numero, String cidade, String cep) {
+        this.id = UUID.randomUUID().toString();
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.cep = cep;
+        this.complemento = "";
+        this.estado = "";
+        this.pais = "";
+        this.enderecoEntrega = "";
+    }
 
     public Endereco(String id, String rua, String numero, String complemento, String cidade,
                     String estado, String cep, String pais, String enderecoEntrega) {
