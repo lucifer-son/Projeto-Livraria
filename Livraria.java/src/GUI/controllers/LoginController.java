@@ -21,7 +21,9 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        // A imagem agora é definida no FXML, então este código não é mais necessário.
+        // A imagem era para ser definida aqui via código,
+        // mas no projeto original isso ficou em branco.
+        // (Pode deixar exatamente assim para voltar ao estado inicial.)
     }
 
     @FXML
@@ -30,7 +32,7 @@ public class LoginController {
         String senha = passwordField.getText();
 
         if (email.isEmpty() || senha.isEmpty()) {
-            
+
             System.out.println("Preencha todos os campos.");
             return;
         }
@@ -38,7 +40,7 @@ public class LoginController {
         if (Fachada.getInstance().autenticar(email, senha)) {
             MainApp.showScreen("menu");
         } else {
-            
+
             System.out.println("E-mail ou senha inválidos.");
         }
     }
