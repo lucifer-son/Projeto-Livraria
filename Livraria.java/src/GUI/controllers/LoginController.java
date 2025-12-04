@@ -3,9 +3,10 @@ package GUI.controllers;
 import GUI.MainApp;
 import main.Fachada;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LoginController {
 
@@ -16,7 +17,13 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    private Label errorLabel;
+    private ImageView logoImageView;
+
+    @FXML
+    public void initialize() {
+        Image logo = new Image(getClass().getResourceAsStream("/GUI/resources/imagens/novologo.jpg"));
+        logoImageView.setImage(logo);
+    }
 
     @FXML
     private void onLogin() {
@@ -24,14 +31,16 @@ public class LoginController {
         String senha = passwordField.getText();
 
         if (email.isEmpty() || senha.isEmpty()) {
-            errorLabel.setText("Preencha todos os campos.");
+            
+            System.out.println("Preencha todos os campos.");
             return;
         }
 
         if (Fachada.getInstance().autenticar(email, senha)) {
             MainApp.showScreen("menu");
         } else {
-            errorLabel.setText("E-mail ou senha inválidos.");
+            
+            System.out.println("E-mail ou senha inválidos.");
         }
     }
 
